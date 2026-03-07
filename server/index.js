@@ -18,7 +18,6 @@ app.use('/api/team', require('./routes/team'))
 app.use('/api/gallery', require('./routes/gallery'))
 app.use('/api/testimonials', require('./routes/testimonials'))
 app.use('/api/faculty', require('./routes/faculty'))
-app.use('/api/chatbot', require('./routes/chatbot'))
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
