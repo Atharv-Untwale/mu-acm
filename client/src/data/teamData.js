@@ -1,5 +1,5 @@
 export const council = [
-  { name: 'Atharv Untwale', role: 'President', image: '', linkedin: '', github: '', instagram: '' },
+  { name: 'Atharv Untwale', role: 'President', image: '/atharv-untwale.jpg', linkedin: '', github: '', instagram: '' },
   { name: 'Kasak Tolani', role: 'Vice President', image: '', linkedin: '', github: '', instagram: '' },
   { name: 'Hemant Sharma', role: 'Vice President', image: '', linkedin: '', github: '', instagram: '' },
 ]
