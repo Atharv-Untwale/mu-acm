@@ -36,7 +36,7 @@ export default function Navbar() {
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
 
           {/* Logo */}
-          <Link to="/acm-logo.png" className="group flex items-center gap-3">
+          <Link to="/" className="group flex items-center gap-3">
             {/* ACM logo — place your logo at client/public/acm-logo.png */}
             <div className="h-9 w-auto flex items-center">
               <img
@@ -52,14 +52,14 @@ export default function Navbar() {
               {/* Fallback placeholder shown until logo is added */}
               <div className="hidden w-9 h-9 border border-[#00D4FF]/30 group-hover:border-[#00D4FF]/70
                 items-center justify-center transition-all duration-300">
-                <span className="font-['Orbitron'] font-black text-[9px] text-[#00D4FF] leading-none">MU<br/>ACM</span>
+                <span className="font-['Orbitron'] font-black text-xs text-[#00D4FF] leading-none">MU<br/>ACM</span>
               </div>
             </div>
             <div>
               <div className="font-['Orbitron'] font-black text-[15px] tracking-widest text-white leading-none">
                 MU<span className="text-[#00D4FF]">-ACM</span>
               </div>
-              <div className="font-['JetBrains_Mono'] text-[8px] text-[#00D4FF]/25 tracking-[0.3em] leading-none mt-0.5">
+              <div className="font-['JetBrains_Mono'] text-[10px] text-[#00D4FF]/50 tracking-[0.3em] leading-none mt-0.5">
                 STUDENT CHAPTER
               </div>
             </div>
@@ -69,8 +69,8 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-1">
             {links.map(l => (
               <a key={l.label} href={l.href}
-                className="relative px-4 py-2 font-['JetBrains_Mono'] text-[11px] tracking-widest
-                  uppercase text-[#444] hover:text-[#00D4FF] transition-colors duration-200 group">
+                className="relative px-4 py-2 font-['JetBrains_Mono'] text-xs tracking-widest
+                  uppercase text-[#aaaabc] hover:text-[#00D4FF] transition-colors duration-200 group">
                 <span className="absolute inset-0 border border-transparent group-hover:border-[#00D4FF]/15
                   group-hover:bg-[#00D4FF]/4 transition-all duration-200" />
                 <span className="relative z-10">{l.label}</span>
@@ -82,11 +82,11 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-5">
             <div className="flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-[#00FF94] animate-pulse shadow-[0_0_5px_#00FF94]" />
-              <span className="font-['JetBrains_Mono'] text-[9px] text-[#333] tracking-widest">ONLINE</span>
+              <span className="font-['JetBrains_Mono'] text-xs text-[#9090a8] tracking-widest">ONLINE</span>
             </div>
             <a href="https://discord.com/invite/qaRz3z9rFF" target="_blank" rel="noopener noreferrer"
               className="group relative overflow-hidden border border-[#00D4FF]/30 hover:border-[#00D4FF]/70
-                font-['Orbitron'] font-bold text-[10px] text-[#00D4FF] px-5 py-2.5 tracking-widest
+                font-['Orbitron'] font-bold text-xs text-[#00D4FF] px-5 py-2.5 tracking-widest
                 transition-all duration-300 hover:shadow-[0_0_16px_rgba(0,212,255,0.2)]">
               <span className="absolute inset-0 bg-[#00D4FF] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
               <span className="relative z-10 group-hover:text-[#020205] transition-colors duration-300">JOIN DISCORD</span>
@@ -113,14 +113,14 @@ export default function Navbar() {
           {links.map((l, i) => (
             <a key={l.label} href={l.href} onClick={() => setOpen(false)}
               className="flex items-center gap-3 py-3 border-b border-white/[0.03]
-                font-['JetBrains_Mono'] text-xs uppercase tracking-widest text-[#333]
+                font-['JetBrains_Mono'] text-xs uppercase tracking-widest text-[#9090a8]
                 hover:text-[#00D4FF] transition-colors">
-              <span className="text-[#00D4FF]/20 w-5 text-[10px]">{String(i+1).padStart(2,'0')}</span>
+              <span className="text-[#00D4FF]/45 w-5 text-xs">{String(i+1).padStart(2,'0')}</span>
               {l.label}
             </a>
           ))}
           <a href="https://discord.com/invite/qaRz3z9rFF" target="_blank" rel="noopener noreferrer"
-            className="mt-4 border border-[#00D4FF]/30 text-[#00D4FF] font-['Orbitron'] font-bold text-[10px]
+            className="mt-4 border border-[#00D4FF]/30 text-[#00D4FF] font-['Orbitron'] font-bold text-xs
               px-5 py-3 text-center tracking-widest hover:bg-[#00D4FF]/10 transition-all duration-300">
             JOIN DISCORD
           </a>

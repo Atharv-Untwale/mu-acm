@@ -104,11 +104,11 @@ const EventCard = ({ ev, i = 0 }) => (
               font-['JetBrains_Mono'] text-xs text-[#1a1a2e]">// NO_IMAGE</div>
         }
         {/* Status badge */}
-        <div className={`absolute top-3 right-3 font-['JetBrains_Mono'] text-[9px] px-2 py-1
+        <div className={`absolute top-3 right-3 font-['JetBrains_Mono'] text-xs px-2 py-1
           border tracking-widest backdrop-blur-sm
           ${ev.status === 'upcoming'
             ? 'border-[#00D4FF]/50 text-[#00D4FF] bg-[#00D4FF]/10'
-            : 'border-[#222] text-[#444] bg-[#020205]/60'
+            : 'border-[#222] text-[#7a7a90] bg-[#020205]/60'
           }`}>
           {ev.status?.toUpperCase()}
         </div>
@@ -116,8 +116,8 @@ const EventCard = ({ ev, i = 0 }) => (
         {ev.tags?.length > 0 && (
           <div className="absolute bottom-3 left-3 flex gap-1.5">
             {ev.tags.map(tag => (
-              <span key={tag} className="font-['JetBrains_Mono'] text-[8px] px-1.5 py-0.5
-                border border-[#00D4FF]/15 text-[#00D4FF]/40 bg-[#020205]/70 tracking-widest">
+              <span key={tag} className="font-['JetBrains_Mono'] text-[10px] px-1.5 py-0.5
+                border border-[#00D4FF]/15 text-[#00D4FF]/65 bg-[#020205]/70 tracking-widest">
                 {tag}
               </span>
             ))}
@@ -128,18 +128,18 @@ const EventCard = ({ ev, i = 0 }) => (
       {/* Content */}
       <div className="p-5">
         {ev.date && (
-          <div className="font-['JetBrains_Mono'] text-[#00D4FF]/35 text-[10px] tracking-widest mb-2">
+          <div className="font-['JetBrains_Mono'] text-[#00D4FF]/60 text-xs tracking-widest mb-2">
             {ev.date}
           </div>
         )}
         <h3 className="font-['Orbitron'] font-bold text-sm text-white group-hover:text-[#00D4FF]
           transition-colors mb-2 leading-snug">{ev.title}</h3>
-        <p className="text-[#444] font-['JetBrains_Mono'] text-[11px] line-clamp-2 leading-relaxed">
+        <p className="text-[#7a7a90] font-['JetBrains_Mono'] text-xs line-clamp-2 leading-loose">
           {ev.description}
         </p>
         {ev.speaker && (
-          <div className="mt-3 pt-3 border-t border-[#0e0e1c] font-['JetBrains_Mono'] text-[10px]
-            text-[#00D4FF]/40 flex items-center gap-2">
+          <div className="mt-3 pt-3 border-t border-[#0e0e1c] font-['JetBrains_Mono'] text-xs
+            text-[#00D4FF]/65 flex items-center gap-2">
             <span className="text-[#00D4FF]/60 font-bold">SPK</span>
             <span className="truncate">{ev.speaker}</span>
           </div>
@@ -152,11 +152,11 @@ const EventCard = ({ ev, i = 0 }) => (
 // ─── Filter pill ──────────────────────────────────────────────
 const Pill = ({ label, active, onClick }) => (
   <button onClick={onClick}
-    className={`font-['JetBrains_Mono'] text-[10px] tracking-widest px-4 py-2 border
+    className={`font-['JetBrains_Mono'] text-xs tracking-widest px-4 py-2 border
       transition-all duration-200
       ${active
         ? 'border-[#00D4FF]/60 text-[#00D4FF] bg-[#00D4FF]/5'
-        : 'border-[#111] text-[#333] hover:border-[#00D4FF]/25 hover:text-[#00D4FF]/60'
+        : 'border-[#111] text-[#6a6a7e] hover:border-[#00D4FF]/25 hover:text-[#00D4FF]/60'
       }`}>
     {label.toUpperCase()}
   </button>
@@ -195,14 +195,14 @@ const Events = () => {
 
         <div className="relative z-10 max-w-3xl mx-auto">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <span className="font-['JetBrains_Mono'] text-[#00D4FF]/30 text-[10px]">02</span>
+            <span className="font-['JetBrains_Mono'] text-[#00D4FF]/55 text-xs">02</span>
             <div className="w-5 h-px bg-[#00D4FF]/25" />
-            <span className="font-['JetBrains_Mono'] text-[#00D4FF]/60 text-[10px] tracking-[0.35em] uppercase">Events</span>
+            <span className="font-['JetBrains_Mono'] text-[#00D4FF]/60 text-xs tracking-[0.35em] uppercase">Events</span>
           </div>
           <h1 className="font-['Orbitron'] font-black text-4xl md:text-6xl text-white mb-4">
             Our <span className="text-[#00D4FF]">Events</span>
           </h1>
-          <p className="font-['JetBrains_Mono'] text-[#444] text-xs leading-loose tracking-wide max-w-lg mx-auto">
+          <p className="font-['JetBrains_Mono'] text-[#7a7a90] text-xs leading-loose tracking-wide max-w-lg mx-auto">
             Workshops, hackathons, tech talks and competitions — everything MU-ACM has organized and what's coming next.
           </p>
 
@@ -216,7 +216,7 @@ const Events = () => {
               <div key={label} className="flex items-center gap-8">
                 <div className="text-center">
                   <div className={`font-['Orbitron'] font-black text-2xl ${color}`}>{val}</div>
-                  <div className="font-['JetBrains_Mono'] text-[#333] text-[9px] tracking-widest mt-0.5 uppercase">{label}</div>
+                  <div className="font-['JetBrains_Mono'] text-[#6a6a7e] text-xs tracking-widest mt-0.5 uppercase">{label}</div>
                 </div>
                 {i < arr.length - 1 && <div className="w-px h-8 bg-[#0e0e1c]" />}
               </div>

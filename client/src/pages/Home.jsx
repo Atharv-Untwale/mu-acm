@@ -23,9 +23,9 @@ const BootScreen = ({ lines, done }) => (
     {/* Terminal lines */}
     <div className="w-80 font-['JetBrains_Mono'] text-xs space-y-2">
       {lines.map((l, i) => (
-        <div key={i} className={`flex items-center gap-2 ${l.accent ? 'text-[#00D4FF]' : 'text-[#444]'}`}
+        <div key={i} className={`flex items-center gap-2 ${l.accent ? 'text-[#00D4FF]' : 'text-[#7a7a90]'}`}
           style={{ animation: 'fadeIn 0.3s ease forwards' }}>
-          <span className="text-[#00D4FF]/40">&gt;</span>
+          <span className="text-[#00D4FF]/65">&gt;</span>
           <span>{l.text}</span>
           {i === lines.length - 1 && !l.accent && (
             <span className="animate-pulse text-[#00D4FF]">_</span>
@@ -74,7 +74,7 @@ const Hero = ({ visible }) => {
         {/* Eyebrow */}
         <div style={s(0)} className="inline-flex items-center gap-2 mb-8">
           <span className="w-1.5 h-1.5 rounded-full bg-[#00FF94] shadow-[0_0_8px_#00FF94] animate-pulse" />
-          <span className="font-['JetBrains_Mono'] text-[#00D4FF]/60 text-[11px] tracking-[0.3em] uppercase">
+          <span className="font-['JetBrains_Mono'] text-[#00D4FF]/60 text-xs tracking-[0.3em] uppercase">
             Medi-Caps University · ACM Student Chapter
           </span>
         </div>
@@ -89,8 +89,8 @@ const Hero = ({ visible }) => {
 
         {/* Typewriter */}
         <div style={s(300)} className="h-6 mb-10">
-          <span className="font-['JetBrains_Mono'] text-[#555] text-sm tracking-wider">
-            <span className="text-[#00D4FF]/40 mr-2">//</span>
+          <span className="font-['JetBrains_Mono'] text-[#9090a0] text-sm tracking-wider">
+            <span className="text-[#00D4FF]/65 mr-2">//</span>
             <Typewriter words={['Workshops & Hackathons', 'Tech Talks & Competitions', 'Community & Networking', 'Learning & Growing Together']} />
           </span>
         </div>
@@ -99,14 +99,14 @@ const Hero = ({ visible }) => {
         <div style={s(450)} className="flex flex-col sm:flex-row gap-3 justify-center mb-20">
           <a href="https://discord.com/invite/qaRz3z9rFF" target="_blank" rel="noopener noreferrer"
             className="group relative overflow-hidden bg-[#00D4FF] text-[#020205] font-['Orbitron'] font-black
-              text-[11px] tracking-widest px-8 py-3.5 transition-all duration-300
+              text-xs tracking-widest px-8 py-3.5 transition-all duration-300
               hover:shadow-[0_0_28px_rgba(0,212,255,0.4)]">
             <span className="absolute inset-0 bg-white/10 translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-300" />
             <span className="relative z-10">JOIN DISCORD →</span>
           </a>
           <a href="/events"
             className="group relative overflow-hidden border border-[#00D4FF]/30 hover:border-[#00D4FF]/70
-              text-[#00D4FF] font-['Orbitron'] font-bold text-[11px] tracking-widest px-8 py-3.5
+              text-[#00D4FF] font-['Orbitron'] font-bold text-xs tracking-widest px-8 py-3.5
               transition-all duration-300">
             <span className="absolute inset-0 bg-[#00D4FF]/5 translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-300" />
             <span className="relative z-10">VIEW EVENTS</span>
@@ -120,7 +120,7 @@ const Hero = ({ visible }) => {
               <div className="font-['Orbitron'] font-black text-[#00D4FF] text-2xl md:text-3xl">
                 <Counter to={parseInt(raw)} suffix={disp.includes('+') ? '+' : ''} />
               </div>
-              <div className="font-['JetBrains_Mono'] text-[#444] text-[10px] tracking-widest mt-1 uppercase">{lbl}</div>
+              <div className="font-['JetBrains_Mono'] text-[#7a7a90] text-xs tracking-widest mt-1 uppercase">{lbl}</div>
             </div>
           ))}
         </div>
@@ -129,7 +129,7 @@ const Hero = ({ visible }) => {
       {/* Scroll hint */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30">
         <div className="w-px h-12 bg-gradient-to-b from-[#00D4FF] to-transparent animate-pulse" />
-        <span className="font-['JetBrains_Mono'] text-[9px] text-[#555] tracking-[0.4em]">SCROLL</span>
+        <span className="font-['JetBrains_Mono'] text-xs text-[#9090a0] tracking-[0.4em]">SCROLL</span>
       </div>
     </section>
   )
@@ -143,7 +143,7 @@ const Marquee = () => (
   <div className="relative z-10 border-y border-[#00D4FF]/8 py-3 overflow-hidden">
     <div className="flex gap-10 whitespace-nowrap" style={{ animation: 'marqueeRun 30s linear infinite' }}>
       {[...PAST,...PAST,...PAST].map((e,i)=>(
-        <span key={i} className="font-['JetBrains_Mono'] text-[#555] text-[11px] tracking-[0.25em] uppercase flex items-center gap-4">
+        <span key={i} className="font-['JetBrains_Mono'] text-[#9090a0] text-xs tracking-[0.25em] uppercase flex items-center gap-4">
           <span className="text-[#00D4FF]/60">◆</span>{e}
         </span>
       ))}
@@ -158,9 +158,9 @@ const Marquee = () => (
 const SectionHead = ({ index, label, title, center = false }) => (
   <div className={`mb-14 ${center ? 'text-center' : ''}`}>
     <div className={`flex items-center gap-3 mb-3 ${center ? 'justify-center' : ''}`}>
-      <span className="font-['JetBrains_Mono'] text-[#00D4FF]/30 text-[10px]">{index}</span>
+      <span className="font-['JetBrains_Mono'] text-[#00D4FF]/55 text-xs">{index}</span>
       <div className="w-5 h-px bg-[#00D4FF]/25" />
-      <span className="font-['JetBrains_Mono'] text-[#00D4FF]/60 text-[10px] tracking-[0.35em] uppercase">{label}</span>
+      <span className="font-['JetBrains_Mono'] text-[#00D4FF]/60 text-xs tracking-[0.35em] uppercase">{label}</span>
     </div>
     <h2 className="font-['Orbitron'] font-black text-3xl md:text-5xl text-white leading-tight">{title}</h2>
   </div>
@@ -174,10 +174,10 @@ const About = () => (
     <div className="grid md:grid-cols-2 gap-20 items-center">
       <Reveal>
         <SectionHead index="01" label="About Us" title={<>What is <span className="text-[#00D4FF]">MU-ACM</span>?</>} />
-        <p className="text-[#555] font-['JetBrains_Mono'] text-xs leading-[2] mb-4">
+        <p className="text-[#9090a0] font-['JetBrains_Mono'] text-sm leading-[2] mb-4">
           The ACM (Association for Computing Machinery) is a 75-year-old international scientific and industrial computing society with around 100,000 members spread over 174 countries.
         </p>
-        <p className="text-[#444] font-['JetBrains_Mono'] text-xs leading-[2] mb-10">
+        <p className="text-[#7a7a90] font-['JetBrains_Mono'] text-sm leading-[2] mb-10">
           The Medi-Caps University ACM Student Chapter is a vibrant community of like-minded individuals with a shared love for technology.
         </p>
         <div className="flex gap-8">
@@ -186,7 +186,7 @@ const About = () => (
               <div className="font-['Orbitron'] font-black text-[#00D4FF] text-2xl">
                 <Counter to={parseInt(raw)} suffix={disp.includes('+') ? '+' : ''} />
               </div>
-              <div className="font-['JetBrains_Mono'] text-[#333] text-[9px] tracking-widest mt-1">{lbl}</div>
+              <div className="font-['JetBrains_Mono'] text-[#6a6a7e] text-xs tracking-widest mt-1">{lbl}</div>
             </div>
           ))}
         </div>
@@ -205,7 +205,7 @@ const About = () => (
               style={{ backgroundImage: 'repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,0.4) 3px,rgba(0,0,0,0.4) 4px)' }} />
           </div>
           <div className="absolute -bottom-2 -right-2 border border-[#00D4FF]/20 bg-[#020205] px-3 py-1.5
-            font-['JetBrains_Mono'] text-[9px] text-[#00D4FF]/50 tracking-widest">
+            font-['JetBrains_Mono'] text-xs text-[#00D4FF]/50 tracking-widest">
             EST. 2022
           </div>
         </div>
@@ -228,20 +228,20 @@ const EventCard = ({ ev, delay = 0 }) => (
           ? <img src={ev.coverImage} alt={ev.title}
               className="w-full h-full object-cover opacity-50 group-hover:opacity-80
                 group-hover:scale-105 transition-all duration-500 grayscale group-hover:grayscale-0" />
-          : <div className="w-full h-full flex items-center justify-center font-['JetBrains_Mono'] text-xs text-[#222]">// NO IMAGE</div>
+          : <div className="w-full h-full flex items-center justify-center font-['JetBrains_Mono'] text-xs text-[#3a3a4a]">// NO IMAGE</div>
         }
-        <div className={`absolute top-3 right-3 font-['JetBrains_Mono'] text-[9px] px-2 py-1 border tracking-widest
-          ${ev.status === 'upcoming' ? 'border-[#00D4FF]/40 text-[#00D4FF]/80 bg-[#00D4FF]/5' : 'border-[#222] text-[#444]'}`}>
+        <div className={`absolute top-3 right-3 font-['JetBrains_Mono'] text-xs px-2 py-1 border tracking-widest
+          ${ev.status === 'upcoming' ? 'border-[#00D4FF]/40 text-[#00D4FF]/80 bg-[#00D4FF]/5' : 'border-[#222] text-[#7a7a90]'}`}>
           {ev.status?.toUpperCase()}
         </div>
       </div>
       <div className="p-5">
-        {ev.date && <div className="font-['JetBrains_Mono'] text-[#00D4FF]/30 text-[10px] tracking-widest mb-2">{ev.date}</div>}
+        {ev.date && <div className="font-['JetBrains_Mono'] text-[#00D4FF]/55 text-xs tracking-widest mb-2">{ev.date}</div>}
         <h3 className="font-['Orbitron'] font-bold text-sm text-white group-hover:text-[#00D4FF]
           transition-colors mb-2 leading-snug">{ev.title}</h3>
-        <p className="text-[#444] font-['JetBrains_Mono'] text-[11px] line-clamp-2 leading-relaxed">{ev.description}</p>
+        <p className="text-[#7a7a90] font-['JetBrains_Mono'] text-xs line-clamp-2 leading-loose">{ev.description}</p>
         {ev.speaker && (
-          <div className="mt-3 pt-3 border-t border-[#0e0e1c] font-['JetBrains_Mono'] text-[10px] text-[#00D4FF]/40">
+          <div className="mt-3 pt-3 border-t border-[#0e0e1c] font-['JetBrains_Mono'] text-xs text-[#00D4FF]/65">
             <span className="text-[#00D4FF]/60">SPK</span> · {ev.speaker}
           </div>
         )}
@@ -266,7 +266,7 @@ const EventsSection = () => {
       <Reveal>
         <div className="flex items-end justify-between mb-14">
           <SectionHead index="02" label="Latest Events" title="Events" />
-          <a href="/events" className="hidden md:flex items-center gap-2 font-['JetBrains_Mono'] text-[11px]
+          <a href="/events" className="hidden md:flex items-center gap-2 font-['JetBrains_Mono'] text-xs
             text-[#00D4FF]/50 tracking-widest hover:text-[#00D4FF] transition-colors mb-14">
             VIEW ALL →
           </a>
@@ -314,8 +314,8 @@ const TestimonialsSection = () => (
             <div className="border border-[#0e0e1c] hover:border-[#00D4FF]/20 bg-[#06060e]
               p-6 flex flex-col gap-4 h-full transition-all duration-300
               hover:shadow-[0_8px_30px_rgba(0,212,255,0.05)]">
-              <div className="font-['Orbitron'] text-[#00D4FF]/20 text-4xl leading-none">"</div>
-              <p className="text-[#555] font-['JetBrains_Mono'] text-xs leading-relaxed flex-1">{t.quote}</p>
+              <div className="font-['Orbitron'] text-[#00D4FF]/45 text-4xl leading-none">"</div>
+              <p className="text-[#9090a0] font-['JetBrains_Mono'] text-xs leading-relaxed flex-1">{t.quote}</p>
               <div className="flex items-center gap-3 pt-4 border-t border-[#0d0d1a]">
                 <div className="w-8 h-8 border border-[#00D4FF]/15 bg-[#00D4FF]/5 shrink-0
                   flex items-center justify-center font-['Orbitron'] font-black text-[#00D4FF] text-xs">
@@ -323,7 +323,7 @@ const TestimonialsSection = () => (
                 </div>
                 <div className="min-w-0">
                   <div className="font-['Orbitron'] font-bold text-xs text-white truncate">{t.name}</div>
-                  <div className="font-['JetBrains_Mono'] text-[#00D4FF]/35 text-[9px] tracking-widest mt-0.5">{t.role}</div>
+                  <div className="font-['JetBrains_Mono'] text-[#00D4FF]/60 text-xs tracking-widest mt-0.5">{t.role}</div>
                 </div>
               </div>
             </div>
@@ -343,7 +343,7 @@ const IG = 'M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.91
 
 const Social = ({ href, d }) => href ? (
   <a href={href} target="_blank" rel="noopener noreferrer"
-    className="text-[#2a2a3a] hover:text-[#00D4FF] transition-colors duration-200 p-1">
+    className="text-[#4a4a5e] hover:text-[#00D4FF] transition-colors duration-200 p-1">
     <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d={d} /></svg>
   </a>
 ) : null
@@ -369,7 +369,7 @@ const MemberCard = ({ m, large = false }) => (
       transition-colors leading-tight w-full
       ${large ? 'text-sm mb-1.5' : 'text-xs mb-1'}`}>{m.name}</h3>
     <p className={`font-['JetBrains_Mono'] text-[#00D4FF]/50 tracking-widest mb-3 w-full
-      ${large ? 'text-[10px]' : 'text-[9px]'}`}>{m.role?.toUpperCase()}</p>
+      ${large ? 'text-xs' : 'text-xs'}`}>{m.role?.toUpperCase()}</p>
     <div className="flex items-center gap-1">
       <Social href={m.linkedin} d={LI} />
       <Social href={m.github} d={GH} />
@@ -381,7 +381,7 @@ const MemberCard = ({ m, large = false }) => (
 const Divider = ({ label }) => (
   <div className="flex items-center gap-3 mb-6">
     <div className="w-1.5 h-1.5 bg-[#00D4FF]/25 rotate-45 shrink-0" />
-    <span className="font-['JetBrains_Mono'] text-[9px] text-[#00D4FF]/30 tracking-[0.4em] uppercase whitespace-nowrap">{label}</span>
+    <span className="font-['JetBrains_Mono'] text-xs text-[#00D4FF]/55 tracking-[0.4em] uppercase whitespace-nowrap">{label}</span>
     <div className="flex-1 h-px bg-[#0e0e1c]" />
   </div>
 )
@@ -391,8 +391,8 @@ const HomeTeamSection = () => (
     <Reveal>
       <div className="flex items-end justify-between mb-14">
         <SectionHead index="04" label="Core Team" title="The People" />
-        <a href="/team" className="hidden md:flex items-center gap-2 font-['JetBrains_Mono'] text-[11px]
-          text-[#00D4FF]/40 tracking-widest hover:text-[#00D4FF] transition-colors mb-14">
+        <a href="/team" className="hidden md:flex items-center gap-2 font-['JetBrains_Mono'] text-xs
+          text-[#00D4FF]/65 tracking-widest hover:text-[#00D4FF] transition-colors mb-14">
           FULL TEAM →
         </a>
       </div>
@@ -422,7 +422,7 @@ const HomeTeamSection = () => (
     <Reveal delay={100}>
       <div className="text-center">
         <a href="/team" className="group relative overflow-hidden inline-flex items-center gap-2
-          border border-[#00D4FF]/25 text-[#00D4FF]/70 font-['Orbitron'] font-bold text-[11px]
+          border border-[#00D4FF]/25 text-[#00D4FF]/70 font-['Orbitron'] font-bold text-xs
           px-8 py-3.5 tracking-widest hover:border-[#00D4FF]/50 hover:text-[#00D4FF] transition-all duration-300">
           <span className="absolute inset-0 bg-[#00D4FF]/4 translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-300" />
           <span className="relative z-10">VIEW FULL TEAM →</span>
@@ -473,7 +473,7 @@ const FacultySection = () => (
                 {f.image
                   ? <img src={f.image} alt={f.name}
                       className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-500 mix-blend-luminosity hover:mix-blend-normal" />
-                  : <span className="font-['Orbitron'] font-black text-[#00D4FF]/40 text-3xl">
+                  : <span className="font-['Orbitron'] font-black text-[#00D4FF]/65 text-3xl">
                       {f.name.charAt(0)}
                     </span>
                 }
@@ -481,16 +481,16 @@ const FacultySection = () => (
 
               {/* Name + designation */}
               <div className="pt-1">
-                <div className="font-['JetBrains_Mono'] text-[#00D4FF]/40 text-[9px] tracking-[0.3em] mb-2 uppercase">
+                <div className="font-['JetBrains_Mono'] text-[#00D4FF]/65 text-xs tracking-[0.3em] mb-2 uppercase">
                   Faculty
                 </div>
                 <h3 className="font-['Orbitron'] font-bold text-white text-sm leading-snug mb-1.5">
                   {f.name}
                 </h3>
-                <div className="font-['JetBrains_Mono'] text-[#00D4FF]/50 text-[10px] tracking-widest">
+                <div className="font-['JetBrains_Mono'] text-[#00D4FF]/50 text-xs tracking-widest">
                   {f.designation}
                 </div>
-                <div className="font-['JetBrains_Mono'] text-[#333] text-[9px] tracking-widest mt-0.5">
+                <div className="font-['JetBrains_Mono'] text-[#6a6a7e] text-xs tracking-widest mt-0.5">
                   {f.department}
                 </div>
               </div>
@@ -498,8 +498,8 @@ const FacultySection = () => (
 
             {/* Statement */}
             <div className="px-6 pb-6 pt-0 border-t border-[#0e0e1c]">
-              <div className="font-['Orbitron'] text-[#00D4FF]/15 text-3xl leading-none mt-4 mb-2">"</div>
-              <p className="font-['JetBrains_Mono'] text-[#555] text-xs leading-[2] italic">
+              <div className="font-['Orbitron'] text-[#00D4FF]/65 text-3xl leading-none mt-4 mb-2">"</div>
+              <p className="font-['JetBrains_Mono'] text-[#9090a0] text-sm leading-[2] italic">
                 {f.statement}
               </p>
             </div>
@@ -534,13 +534,13 @@ const FAQ = () => {
               <div className="border border-[#0e0e1c] hover:border-[#00D4FF]/15 bg-[#06060e] overflow-hidden transition-colors duration-300">
                 <button onClick={() => setOpen(open === i ? null : i)}
                   className="w-full flex items-center gap-4 px-6 py-4 text-left group">
-                  <span className="font-['JetBrains_Mono'] text-[#00D4FF]/20 text-[10px] shrink-0 w-6">{String(i+1).padStart(2,'0')}</span>
+                  <span className="font-['JetBrains_Mono'] text-[#00D4FF]/45 text-xs shrink-0 w-6">{String(i+1).padStart(2,'0')}</span>
                   <span className="font-['Orbitron'] font-bold text-xs text-white flex-1 group-hover:text-[#00D4FF]/80 transition-colors">{faq.q}</span>
-                  <span className="font-['JetBrains_Mono'] text-[#00D4FF]/40 text-base shrink-0 transition-transform duration-300"
+                  <span className="font-['JetBrains_Mono'] text-[#00D4FF]/65 text-base shrink-0 transition-transform duration-300"
                     style={{ transform: open === i ? 'rotate(45deg)' : 'none' }}>+</span>
                 </button>
                 <div className={`overflow-hidden transition-all duration-300 ${open === i ? 'max-h-32' : 'max-h-0'}`}>
-                  <p className="px-16 pb-5 font-['JetBrains_Mono'] text-[#444] text-xs leading-relaxed border-t border-[#0e0e1c] pt-3">
+                  <p className="px-16 pb-5 font-['JetBrains_Mono'] text-[#7a7a90] text-xs leading-relaxed border-t border-[#0e0e1c] pt-3">
                     {faq.a}
                   </p>
                 </div>
@@ -568,16 +568,16 @@ const JoinSection = () => (
           <div key={p} className={`absolute ${p} w-5 h-5 ${c} border-[#00D4FF]/30`} />
         ))}
         <div className="relative z-10">
-          <div className="font-['JetBrains_Mono'] text-[#00D4FF]/30 text-[10px] tracking-[0.4em] mb-4">// 07 · JOIN</div>
+          <div className="font-['JetBrains_Mono'] text-[#00D4FF]/55 text-xs tracking-[0.4em] mb-4">// 07 · JOIN</div>
           <h2 className="font-['Orbitron'] font-black text-3xl md:text-4xl text-white mb-4">
             Ready to join the <span className="text-[#00D4FF]">community</span>?
           </h2>
-          <p className="font-['JetBrains_Mono'] text-[#333] text-xs mb-10 leading-loose">
+          <p className="font-['JetBrains_Mono'] text-[#6a6a7e] text-xs mb-10 leading-loose">
             Connect with like-minded tech enthusiasts. Share ideas. Grow together.
           </p>
           <a href="https://discord.com/invite/qaRz3z9rFF" target="_blank" rel="noopener noreferrer"
             className="group relative overflow-hidden inline-block border border-[#00D4FF]/50
-              text-[#00D4FF] font-['Orbitron'] font-black text-[11px] px-10 py-4 tracking-widest
+              text-[#00D4FF] font-['Orbitron'] font-black text-xs px-10 py-4 tracking-widest
               hover:shadow-[0_0_32px_rgba(0,212,255,0.3)] transition-all duration-400">
             <span className="absolute inset-0 bg-[#00D4FF] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
             <span className="relative z-10 group-hover:text-[#020205] transition-colors duration-300">JOIN DISCORD →</span>
