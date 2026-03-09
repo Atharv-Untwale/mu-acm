@@ -1,24 +1,25 @@
 export const council = [
-  { name: 'Atharv Untwale', role: 'President', image: '/atharv-untwale.jpg', linkedin: '', github: '', instagram: '' },
-  { name: 'Kasak Tolani', role: 'Vice President', image: '', linkedin: '', github: '', instagram: '' },
-  { name: 'Hemant Sharma', role: 'Vice President', image: '', linkedin: '', github: '', instagram: '' },
+  { name: 'Atharv Untwale', role: 'President', image: '/Atharv_Untwale (President) (1).jpg', linkedin: '', github: '', instagram: '' },
+  { name: 'Kasak Tolani', role: 'Vice President', image: '/Kasak Tolani (Vice President) (1).jpg', linkedin: '', github: '', instagram: '' },
+  { name: 'Hemant Sharma', role: 'Vice President', image: '/Hemant_Sharma_(Vice_President) (2).jpg', linkedin: '', github: '', instagram: '' },
 ]
 
 export const heads = [
-  { name: 'Heenal Jain', role: 'Operations Head', image: '', linkedin: '', github: '', instagram: '' },
-  { name: 'Tarang Choure', role: 'Operations Co-Head', image: '', linkedin: '', github: '', instagram: '' },
-  { name: 'Gaurang Gupta', role: 'PR Head', image: '', linkedin: '', github: '', instagram: '' },
-  { name: 'Sabhyata Jain', role: 'PR Co-Head', image: '', linkedin: '', github: '', instagram: '' },
-  { name: 'Yash Thakur', role: 'Technical Head', image: '', linkedin: '', github: '', instagram: '' },
-  { name: 'Aditi Agrahari', role: 'Content Head', image: '', linkedin: '', github: '', instagram: '' },
-  { name: 'Ikshit Jain', role: 'Graphics Head', image: '', linkedin: '', github: '', instagram: '' },
-  { name: 'Kalash Kale', role: 'Video Editing Head', image: '', linkedin: '', github: '', instagram: '' },
+  { name: 'Heenal Jain', role: 'Operations Head', image: '/Heenal_Jain(Operations_and_Management_Head) (1).jpg', linkedin: '', github: '', instagram: '' },
+  { name: 'Tarang Choure', role: 'Operations Co-Head', image: '/Tarang Choure ( Operation Co-Head ) (1).jpg', linkedin: '', github: '', instagram: '' },
+  { name: 'Gaurang Gupta', role: 'PR Head', image: '/Gaurang_Gupta_(PR_Head) (1).JPG', linkedin: '', github: '', instagram: '' },
+  { name: 'Sabhyata Jain', role: 'PR Co-Head', image: '/Sabhyata_jain(PR_Cohead) (1).jpg', linkedin: '', github: '', instagram: '' },
+  { name: 'Yash Thakur', role: 'Technical Head', image: '/yash.png', linkedin: '', github: '', instagram: '' },
+  { name: 'Aditi Agrahari', role: 'Content Head', image: '/Aditi Agrahari.jpg', linkedin: '', github: '', instagram: '' },
+  { name: 'Ikshit Jain', role: 'Graphics Head', image: '/IKSHT_JAIN(GRAPHICS_HEAD) (1).jpg', linkedin: '', github: '', instagram: '' },
+  { name: 'Vaishnavi Patidar', role: 'Graphics Co-Head', image: '/Vaishnavi_Patidar(Graphics_executive).jpg', linkedin: '', github: '', instagram: '' },
+  { name: 'Kalash Kale', role: 'Video Editing Head', image: '/kalash_kale.png', linkedin: '', github: '', instagram: '' },
 ]
 
 export const mentors = [
   { name: 'Damita Pathak', role: 'Overall Mentor', image: '', linkedin: '', github: '', instagram: '' },
-  { name: 'Riddhima Kaushal', role: 'Overall Mentor', image: '', linkedin: '', github: '', instagram: '' },
-  { name: 'Ashwin Parande', role: 'Tech Mentor', image: '', linkedin: '', github: '', instagram: '' },
+  { name: 'Riddhima Kaushal', role: 'Overall Mentor', image: '/riddhima.png', linkedin: '', github: '', instagram: '' },
+  { name: 'Ashwin Parande', role: 'Tech Mentor', image: '/Ashwin.jpg', linkedin: '', github: '', instagram: '' },
   { name: 'Aadeesh Jain', role: 'Video Editing Mentor', image: '', linkedin: '', github: '', instagram: '' },
 ]
 
