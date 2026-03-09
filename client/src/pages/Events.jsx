@@ -4,6 +4,46 @@ import { Reveal } from '../components/animations'
 
 // ─── All past events (static, from old site) ──────────────────
 export const PAST_EVENTS = [
+          {
+    id: 'code_canvas',
+    title: 'Code Canvas',
+    date: 'March 2026',
+    status: 'Ongoing',
+    coverImage: '/events/genesis.webp',
+    description: 'The founding event of MU-ACM — a celebration of community, technology, and the beginning of something extraordinary at Medi-Caps University.',
+    speaker: null,
+    tags: ['Web Development'],
+  },
+        {
+    id: 'vertex',
+    title: 'Getting Started With Vertex AI',
+    date: 'February 2026',
+    status: 'completed',
+    coverImage: '/events/genesis.webp',
+    description: 'The founding event of MU-ACM — a celebration of community, technology, and the beginning of something extraordinary at Medi-Caps University.',
+    speaker: 'Mr. Abhishek Raj Permani',
+    tags: ['AI', 'Agentic AI'],
+  },
+      {
+    id: 'chakkravyuh_2.0',
+    title: 'Chakravyuh 2.0: The Escape Room',
+    date: 'February 2026',
+    status: 'completed',
+    coverImage: '/events/genesis.webp',
+    description: 'The founding event of MU-ACM — a celebration of community, technology, and the beginning of something extraordinary at Medi-Caps University.',
+    speaker: null,
+    tags: ['Game'],
+  },
+    {
+    id: 'genesis',
+    title: 'Genesis: A Web3 Awakening',
+    date: 'Jul 2024',
+    status: 'completed',
+    coverImage: '/events/genesis.webp',
+    description: 'The founding event of MU-ACM — a celebration of community, technology, and the beginning of something extraordinary at Medi-Caps University.',
+    speaker: 'Mr. Anurag Bajpai & Mr. Jasneet Singh Saini',
+    tags: ['Community', 'Web3'],
+  },
   {
     id: 'basics-of-javascript',
     title: 'Basics of Javascript',
@@ -21,7 +61,7 @@ export const PAST_EVENTS = [
     status: 'completed',
     coverImage: '/events/editing.webp',
     description: 'A hands-on workshop covering the core principles of video editing — storytelling through cuts, color grading, transitions, and industry-standard tools.',
-    speaker: null,
+    speaker: 'Mr. Ram Krishna Swarnkar',
     tags: ['Workshop', 'Design'],
   },
   {
@@ -31,7 +71,7 @@ export const PAST_EVENTS = [
     status: 'completed',
     coverImage: '/events/dm.webp',
     description: 'Expert sessions exploring the intersection of AI and digital marketing — AI-driven strategies, personalised campaigns, data-driven decisions and customer engagement.',
-    speaker: null,
+    speaker: 'Mr. Kaustubh Joshi',
     tags: ['Workshop', 'AI'],
   },
   {
@@ -41,7 +81,7 @@ export const PAST_EVENTS = [
     status: 'completed',
     coverImage: '/events/canva.webp',
     description: 'A creative workshop teaching students to design professional graphics, posters, and social media content using Canva — no prior design experience required.',
-    speaker: null,
+    speaker: 'Ms. Aditi Pathak',
     tags: ['Workshop', 'Design'],
   },
   {
@@ -61,7 +101,7 @@ export const PAST_EVENTS = [
     status: 'completed',
     coverImage: '/events/ainovate.webp',
     description: 'An innovation-focused event exploring the frontiers of Artificial Intelligence — from generative AI models to real-world industry applications and future trends.',
-    speaker: null,
+    speaker: 'Mr. Lokesh Sukhwal',
     tags: ['AI', 'Innovation'],
   },
   {
@@ -74,16 +114,7 @@ export const PAST_EVENTS = [
     speaker: null,
     tags: ['Web Dev', 'Industry'],
   },
-  {
-    id: 'genesis',
-    title: 'Genesis',
-    date: 'Jul 2024',
-    status: 'completed',
-    coverImage: '/events/genesis.webp',
-    description: 'The founding event of MU-ACM — a celebration of community, technology, and the beginning of something extraordinary at Medi-Caps University.',
-    speaker: null,
-    tags: ['Community'],
-  },
+
 ]
 
 // ─── Event Card ───────────────────────────────────────────────
