@@ -10,6 +10,7 @@ import Contributors from './pages/Contributors'
 import AdminLogin from './admin/AdminLogin'
 import AdminDashboard from './admin/AdminDashboard'
 import ProtectedRoute from './components/ProtectedRoute'
+import Achievements from './pages/Achievements'
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
               <Route path="/team" element={<Team />} />
               <Route path="/gallery" element={<Gallery />} />
               <Route path="/contributors" element={<Contributors />} />
+              <Route path="/achievements" element={<Achievements />} />
             </Routes>
             <Footer />
           </>
