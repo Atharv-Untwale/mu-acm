@@ -59,19 +59,15 @@ const Hero = ({ visible }) => {
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 pt-16 overflow-hidden">
-      {/* Subtle radial glow only */}
       <div className="absolute inset-0 pointer-events-none"
         style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 40%, rgba(0,212,255,0.05) 0%, transparent 70%)' }} />
 
-      {/* Corner brackets — just the hero */}
       <div className="absolute top-20 left-6 w-8 h-8 border-l border-t border-[#00D4FF]/20 pointer-events-none" />
       <div className="absolute top-20 right-6 w-8 h-8 border-r border-t border-[#00D4FF]/20 pointer-events-none" />
       <div className="absolute bottom-16 left-6 w-8 h-8 border-l border-b border-[#00D4FF]/20 pointer-events-none" />
       <div className="absolute bottom-16 right-6 w-8 h-8 border-r border-b border-[#00D4FF]/20 pointer-events-none" />
 
       <div className="relative z-10 max-w-4xl mx-auto">
-
-        {/* Eyebrow */}
         <div style={s(0)} className="inline-flex items-center gap-2 mb-8">
           <span className="w-1.5 h-1.5 rounded-full bg-[#00FF94] shadow-[0_0_8px_#00FF94] animate-pulse" />
           <span className="font-['JetBrains_Mono'] text-[#00D4FF]/60 text-xs tracking-[0.3em] uppercase">
@@ -79,7 +75,6 @@ const Hero = ({ visible }) => {
           </span>
         </div>
 
-        {/* Heading — clean, no outline hack */}
         <h1 style={{ ...s(120), fontSize: 'clamp(2.8rem,8vw,6.5rem)' }}
           className="font-['Orbitron'] font-black leading-[1.05] mb-5 select-none">
           <span className="block text-white">We are more</span>
@@ -87,7 +82,6 @@ const Hero = ({ visible }) => {
           <span className="block text-[#00D4FF]">Club.</span>
         </h1>
 
-        {/* Typewriter */}
         <div style={s(300)} className="h-6 mb-10">
           <span className="font-['JetBrains_Mono'] text-[#9090a0] text-sm tracking-wider">
             <span className="text-[#00D4FF]/65 mr-2">//</span>
@@ -95,7 +89,6 @@ const Hero = ({ visible }) => {
           </span>
         </div>
 
-        {/* CTAs */}
         <div style={s(450)} className="flex flex-col sm:flex-row gap-3 justify-center mb-20">
           <a href="https://discord.com/invite/qaRz3z9rFF" target="_blank" rel="noopener noreferrer"
             className="group relative overflow-hidden bg-[#00D4FF] text-[#020205] font-['Orbitron'] font-black
@@ -113,7 +106,6 @@ const Hero = ({ visible }) => {
           </a>
         </div>
 
-        {/* Stats — inline row, not boxes */}
         <div style={s(600)} className="flex items-center justify-center gap-10 md:gap-16">
           {[['100000','100K+','ACM Members'],['174','174','Countries'],['75','75+','Years Old']].map(([raw,disp,lbl]) => (
             <div key={lbl} className="text-center">
@@ -126,7 +118,6 @@ const Hero = ({ visible }) => {
         </div>
       </div>
 
-      {/* Scroll hint */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30">
         <div className="w-px h-12 bg-gradient-to-b from-[#00D4FF] to-transparent animate-pulse" />
         <span className="font-['JetBrains_Mono'] text-xs text-[#9090a0] tracking-[0.4em]">SCROLL</span>
@@ -171,43 +162,58 @@ const SectionHead = ({ index, label, title, center = false }) => (
 // ═══════════════════════════════════════════════════════════════
 const About = () => (
   <section id="about" className="relative z-10 py-32 px-6 max-w-6xl mx-auto">
-    <div className="grid md:grid-cols-2 gap-20 items-center">
-      <Reveal>
-        <SectionHead index="01" label="About Us" title={<>What is <span className="text-[#00D4FF]">MU-ACM</span>?</>} />
+    <Reveal>
+      <SectionHead index="01" label="About Us" title={<>What is <span className="text-[#00D4FF]">MU-ACM</span>?</>} />
+    </Reveal>
+
+    {/* Full-width group photo */}
+    <Reveal delay={80}>
+      <div className="relative group mb-16 border border-[#00D4FF]/15 overflow-hidden">
+        {/* Glow behind */}
+        <div className="absolute -inset-6 bg-[#00D4FF]/3 blur-3xl pointer-events-none" />
+
+        <img
+          src="/about.jpg"
+          alt="MU-ACM Team"
+          className="w-full object-cover object-center transition-all duration-700"
+          style={{ maxHeight: '480px' }}
+        />
+
+        {/* EST badge */}
+        <div className="absolute bottom-4 right-4 border border-[#00D4FF]/25 bg-[#020205]/80
+          backdrop-blur-sm px-3 py-1.5 font-['JetBrains_Mono'] text-xs text-[#00D4FF]/60 tracking-widest">
+          EST. 2022
+        </div>
+
+        {/* Member count badge */}
+        <div className="absolute bottom-4 left-4 border border-[#00D4FF]/20 bg-[#020205]/80
+          backdrop-blur-sm px-3 py-1.5 font-['JetBrains_Mono'] text-xs text-[#9090a0] tracking-widest">
+          MU-ACM CORE TEAM
+        </div>
+      </div>
+    </Reveal>
+
+    {/* Text + stats below */}
+    <div className="grid md:grid-cols-2 gap-16 items-start">
+      <Reveal delay={120}>
         <p className="text-[#9090a0] font-['JetBrains_Mono'] text-sm leading-[2] mb-4">
           The ACM (Association for Computing Machinery) is a 75-year-old international scientific and industrial computing society with around 100,000 members spread over 174 countries.
         </p>
-        <p className="text-[#7a7a90] font-['JetBrains_Mono'] text-sm leading-[2] mb-10">
-          The Medi-Caps University ACM Student Chapter is a vibrant community of like-minded individuals with a shared love for technology.
+        <p className="text-[#7a7a90] font-['JetBrains_Mono'] text-sm leading-[2]">
+          The Medi-Caps University ACM Student Chapter is a vibrant community of like-minded individuals with a shared love for technology. Dedicated to fostering growth in the world of computing, we organise events that cater to the holistic technical needs of the job market.
         </p>
-        <div className="flex gap-8">
-          {[['100000','100K+','Members'],['174','174','Countries'],['75','75+','Years']].map(([raw,disp,lbl])=>(
-            <div key={lbl}>
-              <div className="font-['Orbitron'] font-black text-[#00D4FF] text-2xl">
-                <Counter to={parseInt(raw)} suffix={disp.includes('+') ? '+' : ''} />
-              </div>
-              <div className="font-['JetBrains_Mono'] text-[#6a6a7e] text-xs tracking-widest mt-1">{lbl}</div>
-            </div>
-          ))}
-        </div>
       </Reveal>
 
-      <Reveal delay={150}>
-        <div className="relative">
-          <div className="absolute -inset-4 bg-[#00D4FF]/4 blur-3xl pointer-events-none rounded-full" />
-          <div className="relative border border-[#00D4FF]/15 overflow-hidden group">
-            <img src="/about.webp" alt="About MU-ACM"
-              className="w-full aspect-[4/3] object-cover opacity-50 group-hover:opacity-70 transition-opacity duration-700
-                grayscale group-hover:grayscale-[30%]" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#020205]/80 via-transparent to-transparent" />
-            {/* scanlines */}
-            <div className="absolute inset-0 opacity-10 pointer-events-none"
-              style={{ backgroundImage: 'repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,0.4) 3px,rgba(0,0,0,0.4) 4px)' }} />
-          </div>
-          <div className="absolute -bottom-2 -right-2 border border-[#00D4FF]/20 bg-[#020205] px-3 py-1.5
-            font-['JetBrains_Mono'] text-xs text-[#00D4FF]/50 tracking-widest">
-            EST. 2022
-          </div>
+      <Reveal delay={200}>
+        <div className="flex gap-10 md:justify-end">
+          {[['100000','100K+','Members'],['174','174','Countries'],['75','75+','Years']].map(([raw,disp,lbl])=>(
+            <div key={lbl} className="text-center">
+              <div className="font-['Orbitron'] font-black text-[#00D4FF] text-3xl md:text-4xl">
+                <Counter to={parseInt(raw)} suffix={disp.includes('+') ? '+' : ''} />
+              </div>
+              <div className="font-['JetBrains_Mono'] text-[#6a6a7e] text-xs tracking-widest mt-2 uppercase">{lbl}</div>
+            </div>
+          ))}
         </div>
       </Reveal>
     </div>
@@ -215,7 +221,7 @@ const About = () => (
 )
 
 // ═══════════════════════════════════════════════════════════════
-// EVENTS — static past (imported) + API future
+// EVENTS
 // ═══════════════════════════════════════════════════════════════
 const EventCard = ({ ev, delay = 0 }) => (
   <Reveal delay={delay}>
@@ -256,7 +262,6 @@ const EventsSection = () => {
     API.get('/events').then(r => setUpcoming(r.data.filter(e => e.status === 'upcoming').slice(0, 3))).catch(() => {})
   }, [])
 
-  // Show upcoming first (from API), then latest 3 past events on home
   const displayed = upcoming.length > 0
     ? [...upcoming, ...PAST_EVENTS.slice(0, 3 - upcoming.length)]
     : PAST_EVENTS.slice(0, 3)
@@ -281,22 +286,25 @@ const EventsSection = () => {
 }
 
 // ═══════════════════════════════════════════════════════════════
-// TESTIMONIALS — static core team quotes
+// TESTIMONIALS
 // ═══════════════════════════════════════════════════════════════
 const TEAM_TESTIMONIALS = [
-  { name: 'Atharv Untwale',   role: 'President',           quote: '"My journey with the ACM Student Chapter has been incredibly rewarding. I started as an Executive Member, learning the fundamentals of organizing events and building a strong tech community. Over time, I took on greater responsibilities, collaborated with amazing teammates, and contributed to initiatives that created real impact on campus. Today, leading the chapter is both an honor and a responsibility. ACM has not only helped me grow as a leader but has also given me the opportunity to inspire and support others in their tech journey."' },
-  { name: 'Kasak Tolani',     role: 'Vice President',      quote: '"Working as the Vice President of ACM has been an incredibly meaningful experience for me. This role has allowed me to contribute to the growth of the club while learning valuable leadership and teamwork skills. From helping organize events to supporting the team, every moment has been a great opportunity to learn and collaborate with passionate people. ACM has become a place where ideas grow, friendships build, and I continue to develop both personally and professionally. I’m truly grateful to be part of such an inspiring community."' },
-  { name: 'Hemant Sharma',    role: 'Vice President',      quote: '"Being the Vice President of ACM has been a really great experience for me. It’s given me the chance to work with an amazing team and be part of organizing things that actually bring people together. There’s always something new to learn, whether it’s planning events, solving problems, or just sharing ideas with everyone. What I love most about ACM is the energy of the people and how supportive the community feels. It’s made my college life a lot more exciting and meaningful."' },
-  { name: 'Heenal Jain',      role: 'Operations Head',     quote: '"Working as the Operations and management Head at ACM has been a truly rewarding part of my college journey. This role has given me the opportunity to coordinate with an amazing team and ensure that our events and initiatives run smoothly. From managing responsibilities to solving challenges during activities, every experience has helped me grow in leadership, organization, and teamwork. ACM is more than just a technical club for me—it’s a community where students collaborate, learn, and turn ideas into impactful initiatives. Being part of this journey has allowed me to gain valuable experiences while contributing to the growth of the club and its members."' },
-  { name: 'Tarang Choure',    role: 'Operations Co-Head',  quote: 'Being the Operations Co-Head at ACM has been an important part of my college journey. It allowed me to work closely with a great team and form strong connections with people who shared my enthusiasm. I managed responsibilities and supported various activities, gaining a lot of knowledge both inside and outside the college. I dedicated a significant amount of my college time to ACM, and it provided me with valuable experiences, lessons, and memories that I will always cherish.' },
-  { name: 'Gaurang Gupta',    role: 'PR Head',             quote: '“Being the Corporate and PR Head at ACM has been a truly transformative journey. ACM has given me the space to grow as a leader, communicator, and strategist. From collaborating with industry partners to building meaningful campus relations, every initiative has strengthened my confidence and shaped my professional identity. What makes ACM special is its culture of innovation, teamwork, and continuous learning. It’s not just a technical society —it’s a space where ideas become opportunities and students become leaders.”' },
+  { name: 'Atharv Untwale',   role: 'President',           quote: 'My journey with the ACM Student Chapter has been incredibly rewarding. I started as an Executive Member, learning the fundamentals of organizing events and building a strong tech community. Over time, I took on greater responsibilities, collaborated with amazing teammates, and contributed to initiatives that created real impact on campus. Today, leading the chapter is both an honor and a responsibility. ACM has not only helped me grow as a leader but has also given me the opportunity to inspire and support others in their tech journey.' },
+  { name: 'Kasak Tolani',     role: 'Vice President',      quote: 'Working as the Vice President of ACM has been an incredibly meaningful experience for me. This role has allowed me to contribute to the growth of the club while learning valuable leadership and teamwork skills. From helping organize events to supporting the team, every moment has been a great opportunity to learn and collaborate with passionate people. ACM has become a place where ideas grow, friendships build, and I continue to develop both personally and professionally.' },
+  { name: 'Hemant Sharma',    role: 'Vice President',      quote: 'Being the Vice President of ACM has been a really great experience for me. It\'s given me the chance to work with an amazing team and be part of organizing things that actually bring people together. There\'s always something new to learn, whether it\'s planning events, solving problems, or just sharing ideas with everyone. What I love most about ACM is the energy of the people and how supportive the community feels.' },
+  { name: 'Heenal Jain',      role: 'Operations Head',     quote: 'Working as the Operations and Management Head at ACM has been a truly rewarding part of my college journey. This role has given me the opportunity to coordinate with an amazing team and ensure that our events and initiatives run smoothly. From managing responsibilities to solving challenges during activities, every experience has helped me grow in leadership, organization, and teamwork.' },
+  { name: 'Tarang Choure',    role: 'Operations Co-Head',  quote: 'Being the Operations Co-Head at ACM has been an important part of my college journey. It allowed me to work closely with a great team and form strong connections with people who shared my enthusiasm. I managed responsibilities and supported various activities, gaining a lot of knowledge both inside and outside the college.' },
+  { name: 'Gaurang Gupta',    role: 'PR Head',             quote: 'Being the Corporate and PR Head at ACM has been a truly transformative journey. ACM has given me the space to grow as a leader, communicator, and strategist. From collaborating with industry partners to building meaningful campus relations, every initiative has strengthened my confidence and shaped my professional identity.' },
   { name: 'Sabhyata Jain',    role: 'PR Co-Head',          quote: 'MU-ACM gave me a platform to combine creativity with purpose. Every campaign we run is a chance to bring more people into the world of technology.' },
   { name: 'Yash Thakur',      role: 'Technical Head',      quote: 'The technical team at MU-ACM is where ideas become reality. We don\'t just talk about building things — we sit down and actually build them.' },
-  { name: 'Aditi Agrahari',   role: 'Content Head',        quote: '“Working as the Content Head of ACM has taught me so much. I might be the youngest core member in the team, but that’s actually what makes it even more exciting to me, I get to learn, experiment, and bring a fresh perspective to the team. From writing content to brainstorming ideas, it’s been a mix of fun moments and real learning. This role has made me more confident and more connected to the club, and I genuinely enjoy every part of it. ACM has become a place where I feel involved, valued, and constantly growing.”' },
-  { name: 'Ikshit Jain',      role: 'Graphics Head',       quote: '"Working as the Graphics Head of ACM has been an amazing learning experience for me. Being responsible for the visual identity of the club, I get the opportunity to turn ideas into creative designs that represent our events and initiatives. From designing posters and social media creatives to collaborating with the team during brainstorming sessions, every task helps me improve my creativity and technical skills. This role has boosted my confidence and allowed me to contribute meaningfully to the club. ACM has become a place where I can express my creativity, learn continuously, and grow together with an inspiring team."' },
-  { name: 'Vaishnavi Patidar',    role: 'Graphics Co-Head',              quote: '"Being part of the ACM student chapter as a graphic Co- head has been a truly rewarding experience. This role gave me the opportunity to combine creativity with teamwork while contributing to the chapters activities and events. During my time in this position, I worked on designing posters, social media creatives ,and promotional materials for various events, which helped me refine my design skills and attention to detail. Being part of the ACM team also gave me the opportunity to collaborate with talented peers and develop valuable skills in coordination, time management, and teamwork while working toward shared goals. I’m grateful for the experience and the chance to grow both creatively and professionally as part of the ACM community.' },
-  { name: 'Kalash Kale',      role: 'Video Editing Head',  quote: '"Being a part of MU-ACM has been a really amazing journey for me. As the head of Video Editing and Production here, I had the opportunity to work alongside amazing people and be part of a truly supportive team. I not only developed the skills in my domain, but I have gained valuable abilities such  as teamwork, collaboration, leadership and making friends. I met wonderful people here and even had the opportunity to mentor some talented juniors. Much like the best stories, MU-ACM is a place where we come together, support one another, and grow stronger together. When the right people come together, the results are limitless and we’re the strongest."' },
-
+  { name: 'Aditi Agrahari',   role: 'Content Head',        quote: 'Working as the Content Head of ACM has taught me so much. I might be the youngest core member in the team, but that\'s actually what makes it even more exciting — I get to learn, experiment, and bring a fresh perspective. This role has made me more confident and more connected to the club, and I genuinely enjoy every part of it.' },
+  { name: 'Ikshit Jain',      role: 'Graphics Head',       quote: 'Working as the Graphics Head of ACM has been an amazing learning experience. Being responsible for the visual identity of the club, I get the opportunity to turn ideas into creative designs that represent our events and initiatives. This role has boosted my confidence and allowed me to contribute meaningfully to the club.' },
+  { name: 'Vaishnavi Patidar', role: 'Graphics Co-Head',   quote: 'Being part of the ACM student chapter as Graphics Co-Head has been a truly rewarding experience. This role gave me the opportunity to combine creativity with teamwork while contributing to the chapter\'s activities and events. I\'m grateful for the chance to grow both creatively and professionally as part of the ACM community.' },
+  { name: 'Kalash Kale',      role: 'Video Editing Head',  quote: 'Being a part of MU-ACM has been a really amazing journey. As the head of Video Editing and Production, I had the opportunity to work alongside amazing people and be part of a truly supportive team. I not only developed skills in my domain, but gained valuable abilities in teamwork, collaboration, and leadership.' },
+  { name: 'Damita Pathak',    role: 'Mentor',              quote: 'Watching this chapter grow has been truly rewarding. The students here have an exceptional drive and a genuine hunger to make a difference.' },
+  { name: 'Riddhima Kaushal', role: 'Mentor',              quote: 'MU-ACM represents everything a student community should be — inclusive, driven, and always striving to raise the bar for what\'s possible.' },
+  { name: 'Ashwin Parande',   role: 'Mentor',              quote: 'Mentoring at MU-ACM is as much a learning experience for me as it is for the students. The curiosity and creativity here never ceases to inspire.' },
+  { name: 'Aadeesh Jain',     role: 'Mentor',              quote: 'The growth I\'ve seen in MU-ACM\'s members — technically and as individuals — is a testament to what a strong community and shared purpose can achieve.' },
 ]
 
 const TestimonialsSection = () => (
@@ -351,7 +359,6 @@ const MemberCard = ({ m, large = false }) => (
     flex flex-col items-center text-center transition-all duration-400
     hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(0,212,255,0.08)]
     ${large ? 'p-5' : 'p-3'}`}>
-    {/* Full-width image area */}
     <div className={`w-full overflow-hidden border border-[#111] group-hover:border-[#00D4FF]/30
       bg-[#0a0a14] transition-colors duration-300 mb-4
       flex items-center justify-center ${large ? 'aspect-[3/4]' : 'aspect-[4/5]'}`}>
@@ -366,8 +373,7 @@ const MemberCard = ({ m, large = false }) => (
     <h3 className={`font-['Orbitron'] font-bold text-white group-hover:text-[#00D4FF]
       transition-colors leading-tight w-full
       ${large ? 'text-sm mb-1.5' : 'text-xs mb-1'}`}>{m.name}</h3>
-    <p className={`font-['JetBrains_Mono'] text-[#00D4FF]/50 tracking-widest mb-3 w-full
-      ${large ? 'text-xs' : 'text-xs'}`}>{m.role?.toUpperCase()}</p>
+    <p className="font-['JetBrains_Mono'] text-[#00D4FF]/50 tracking-widest mb-3 w-full text-xs">{m.role?.toUpperCase()}</p>
     <div className="flex items-center gap-1">
       <Social href={m.linkedin} d={LI} />
       <Social href={m.github} d={GH} />
@@ -438,15 +444,15 @@ const FACULTY = [
     name: 'Prof. Dr. Latika Jindal',
     designation: 'Head of Techno Clubs',
     department: 'Medi-Caps University',
-    image: '/faculty-latika-jindal.webp',   // place photo in client/public/
-    statement: 'Being part of the ACM student chapter as a graphic Co- head has been a truly rewarding experience. This role gave me the opportunity to combine creativity with teamwork while contributing to the chapters activities and events. During my time in this position, I worked on designing posters, social media creatives ,and promotional materials for various events, which helped me refine my design skills and attention to detail. Being part of the ACM team also gave me the opportunity to collaborate with talented peers and develop valuable skills in coordination, time management, and teamwork while working toward shared goals. I’m grateful for the experience and the chance to grow both creatively and professionally as part of the ACM community.',
+    image: '/faculty-latika-jindal.webp',
+    statement: 'Add Prof. Dr. Latika Jindal\'s statement here.',
   },
   {
     name: 'Prof. Priyanka Dhasal',
     designation: 'Faculty Coordinator',
     department: 'Medi-Caps University',
-    image: '/faculty-priyanka-dhasal.webp', // place photo in client/public/
-    statement: 'Being part of the ACM student chapter as a graphic Co- head has been a truly rewarding experience. This role gave me the opportunity to combine creativity with teamwork while contributing to the chapters activities and events. During my time in this position, I worked on designing posters, social media creatives ,and promotional materials for various events, which helped me refine my design skills and attention to detail. Being part of the ACM team also gave me the opportunity to collaborate with talented peers and develop valuable skills in coordination, time management, and teamwork while working toward shared goals. I’m grateful for the experience and the chance to grow both creatively and professionally as part of the ACM community.',
+    image: '/faculty-priyanka-dhasal.webp',
+    statement: 'Add Prof. Priyanka Dhasal\'s statement here.',
   },
 ]
 
@@ -464,7 +470,6 @@ const FacultySection = () => (
             hover:shadow-[0_12px_40px_rgba(0,212,255,0.06)]"
             style={{ minHeight: '280px' }}>
 
-            {/* Large landscape photo — fixed width left column */}
             <div className="w-80 shrink-0 relative overflow-hidden bg-[#0a0a14] flex items-center justify-center">
               {f.image
                 ? <img src={f.image} alt={f.name}
@@ -474,11 +479,9 @@ const FacultySection = () => (
                     {f.name.charAt(0)}
                   </span>
               }
-              {/* Gradient fade right edge into card */}
               <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-r from-transparent to-[#06060e] pointer-events-none" />
             </div>
 
-            {/* Right — info + statement */}
             <div className="flex flex-col justify-between p-8 flex-1 border-l border-[#0e0e1c]">
               <div>
                 <div className="font-['JetBrains_Mono'] text-[#00D4FF]/65 text-xs tracking-[0.35em] mb-3 uppercase">
@@ -561,7 +564,6 @@ const JoinSection = () => (
       <div className="max-w-2xl mx-auto text-center border border-[#00D4FF]/12 bg-[#06060e] p-16 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none"
           style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 50%, rgba(0,212,255,0.03) 0%, transparent 70%)' }} />
-        {/* corner marks */}
         {[['top-0 left-0','border-l border-t'],['top-0 right-0','border-r border-t'],
           ['bottom-0 left-0','border-l border-b'],['bottom-0 right-0','border-r border-b']].map(([p,c])=>(
           <div key={p} className={`absolute ${p} w-5 h-5 ${c} border-[#00D4FF]/30`} />
@@ -595,12 +597,8 @@ export default function Home() {
 
   return (
     <>
-      {/* Boot overlay */}
       <BootScreen lines={lines} done={done} />
-
-      {/* Persistent starfield behind everything */}
       <Starfield />
-
       <main className="pt-0">
         <Hero visible={done} />
         <Marquee />
