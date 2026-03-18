@@ -94,28 +94,45 @@ const Overview = () => {
 }
 
 // ─── EVENTS MANAGER ─────────────────────────────────────────
+const EMPTY_EVENT = {
+  title: '', description: '', overview: '', date: '', time: '', venue: '',
+  status: 'upcoming', coverImage: '', photos: '', speaker: '', attendees: '',
+  tags: '', highlights: '', registerLink: ''
+}
+
+const FieldGroup = ({ label }) => (
+  <div className="md:col-span-2 mt-2 mb-1">
+    <div className="flex items-center gap-3">
+      <span className="font-['JetBrains_Mono'] text-[#00D4FF]/50 text-[10px] tracking-[0.3em] uppercase">{label}</span>
+      <div className="flex-1 h-px bg-border" />
+    </div>
+  </div>
+)
+
 const EventsManager = () => {
   const [events, setEvents] = useState([])
   const [loading, setLoading] = useState(true)
   const [showForm, setShowForm] = useState(false)
   const [editing, setEditing] = useState(null)
-  const [form, setForm] = useState({ title: '', description: '', date: '', status: 'upcoming', coverImage: '', speaker: '', tags: '' })
+  const [form, setForm] = useState(EMPTY_EVENT)
+  const f = (k) => v => setForm(p => ({ ...p, [k]: v }))
 
   const fetchEvents = () => {
     API.get('/events').then(res => setEvents(res.data)).finally(() => setLoading(false))
   }
-
   useEffect(() => { fetchEvents() }, [])
 
-  const resetForm = () => {
-    setForm({ title: '', description: '', date: '', status: 'upcoming', coverImage: '', speaker: '', tags: '' })
-    setEditing(null)
-    setShowForm(false)
-  }
+  const resetForm = () => { setForm(EMPTY_EVENT); setEditing(null); setShowForm(false) }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const payload = { ...form, tags: form.tags.split(',').map(t => t.trim()).filter(Boolean) }
+    const payload = {
+      ...form,
+      tags:       form.tags.split(',').map(t => t.trim()).filter(Boolean),
+      photos:     form.photos.split(',').map(t => t.trim()).filter(Boolean),
+      highlights: form.highlights.split('\n').map(t => t.trim()).filter(Boolean),
+      attendees:  form.attendees ? Number(form.attendees) : undefined,
+    }
     try {
       if (editing) {
         await API.put(`/events/${editing}`, payload)
@@ -126,13 +143,18 @@ const EventsManager = () => {
       }
       fetchEvents()
       resetForm()
-    } catch {
-      toast.error('Something went wrong')
-    }
+    } catch { toast.error('Something went wrong') }
   }
 
   const handleEdit = (event) => {
-    setForm({ ...event, tags: event.tags?.join(', ') || '' })
+    setForm({
+      ...EMPTY_EVENT,
+      ...event,
+      tags:       event.tags?.join(', ') || '',
+      photos:     event.photos?.join(', ') || '',
+      highlights: event.highlights?.join('\n') || '',
+      attendees:  event.attendees?.toString() || '',
+    })
     setEditing(event.id)
     setShowForm(true)
   }
@@ -143,45 +165,77 @@ const EventsManager = () => {
       await API.delete(`/events/${id}`)
       toast.success('Event deleted!')
       fetchEvents()
-    } catch {
-      toast.error('Something went wrong')
-    }
+    } catch { toast.error('Something went wrong') }
   }
+
+  const TA = ({ label, field, rows = 3, placeholder = '' }) => (
+    <div className="md:col-span-2">
+      <label className="text-gray-400 font-body text-sm mb-1.5 block">{label}</label>
+      <textarea value={form[field]} onChange={e => setForm(p => ({ ...p, [field]: e.target.value }))}
+        rows={rows} placeholder={placeholder}
+        className="w-full bg-surface border border-border rounded-xl px-4 py-3 text-white font-body text-sm
+          focus:outline-none focus:border-accent transition-colors resize-none placeholder-gray-600" />
+    </div>
+  )
 
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
         <h1 className="font-heading font-bold text-3xl">Events</h1>
-        <button onClick={() => setShowForm(!showForm)} className="bg-accent text-primary font-heading font-semibold text-sm px-5 py-2 rounded-xl hover:bg-accentDark transition-colors">
+        <button onClick={() => { resetForm(); setShowForm(true) }}
+          className="bg-accent text-primary font-heading font-semibold text-sm px-5 py-2 rounded-xl hover:bg-accentDark transition-colors">
           + Add Event
         </button>
       </div>
 
-      {/* Form */}
+      {/* ── Form ── */}
       {showForm && (
         <div className="bg-card border border-border rounded-2xl p-6 mb-6">
-          <h2 className="font-heading font-bold text-lg mb-4">{editing ? 'Edit Event' : 'New Event'}</h2>
+          <h2 className="font-heading font-bold text-lg mb-6">{editing ? '✏️ Edit Event' : '➕ New Event'}</h2>
           <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-4">
-            <FormInput label="Title" value={form.title} onChange={v => setForm({ ...form, title: v })} required />
-            <FormInput label="Speaker" value={form.speaker} onChange={v => setForm({ ...form, speaker: v })} />
-            <FormInput label="Date" type="date" value={form.date} onChange={v => setForm({ ...form, date: v })} />
-            <FormSelect label="Status" value={form.status} onChange={v => setForm({ ...form, status: v })} options={['upcoming', 'completed']} />
-            <FormInput label="Cover Image URL" value={form.coverImage} onChange={v => setForm({ ...form, coverImage: v })} />
-            <FormInput label="Tags (comma separated)" value={form.tags} onChange={v => setForm({ ...form, tags: v })} />
+
+            {/* Basic info */}
+            <FieldGroup label="Basic Info" />
+            <FormInput label="Title *" value={form.title} onChange={f('title')} required />
+            <FormSelect label="Status" value={form.status} onChange={f('status')} options={['upcoming', 'completed']} />
+            <FormInput label="Date" type="date" value={form.date} onChange={f('date')} />
+            <FormInput label="Time (e.g. 02:30 PM – 04:30 PM)" value={form.time} onChange={f('time')} />
+            <FormInput label="Venue" value={form.venue} onChange={f('venue')} placeholder="e.g. Zoom Meet / Seminar Hall" />
+            <FormInput label="Speaker" value={form.speaker} onChange={f('speaker')} />
+            <FormInput label="Attendees (number)" type="number" value={form.attendees} onChange={f('attendees')} />
+            <FormInput label="Register Link (for upcoming)" value={form.registerLink} onChange={f('registerLink')} />
+
+            {/* Content */}
+            <FieldGroup label="Content" />
+            <TA label="Short Description (shown on cards)" field="description" rows={2}
+              placeholder="One-paragraph summary shown on event cards and listings." />
+            <TA label="Overview (shown on event detail page)" field="overview" rows={4}
+              placeholder="Full description shown on the event detail page." />
+            <TA label="Highlights (one per line)" field="highlights" rows={4}
+              placeholder={"Core JavaScript concepts: Variables, data types...\nProblem-solving techniques: Debugging..."} />
+
+            {/* Media */}
+            <FieldGroup label="Media" />
+            <FormInput label="Cover Image URL" value={form.coverImage} onChange={f('coverImage')} />
             <div className="md:col-span-2">
-              <label className="text-gray-400 font-body text-sm mb-1.5 block">Description</label>
-              <textarea
-                value={form.description}
-                onChange={e => setForm({ ...form, description: e.target.value })}
-                rows={3}
-                className="w-full bg-surface border border-border rounded-xl px-4 py-3 text-white font-body text-sm focus:outline-none focus:border-accent transition-colors resize-none"
-              />
+              <label className="text-gray-400 font-body text-sm mb-1.5 block">
+                Extra Photos (comma-separated URLs — used in the photo grid on event page)
+              </label>
+              <textarea value={form.photos} onChange={e => setForm(p => ({ ...p, photos: e.target.value }))}
+                rows={2} placeholder="https://... , https://... , https://..."
+                className="w-full bg-surface border border-border rounded-xl px-4 py-3 text-white font-body text-sm
+                  focus:outline-none focus:border-accent transition-colors resize-none placeholder-gray-600" />
             </div>
-            <div className="md:col-span-2 flex gap-3">
-              <button type="submit" className="bg-accent text-primary font-heading font-semibold text-sm px-6 py-2 rounded-xl hover:bg-accentDark transition-colors">
-                {editing ? 'Update' : 'Create'}
+            <FormInput label="Tags (comma-separated)" value={form.tags} onChange={f('tags')} placeholder="Workshop, AI, Web Dev" />
+
+            {/* Actions */}
+            <div className="md:col-span-2 flex gap-3 pt-2">
+              <button type="submit"
+                className="bg-accent text-primary font-heading font-semibold text-sm px-8 py-2.5 rounded-xl hover:bg-accentDark transition-colors">
+                {editing ? 'Save Changes' : 'Create Event'}
               </button>
-              <button type="button" onClick={resetForm} className="bg-card border border-border text-gray-400 font-heading font-semibold text-sm px-6 py-2 rounded-xl hover:border-gray-500 transition-colors">
+              <button type="button" onClick={resetForm}
+                className="bg-card border border-border text-gray-400 font-heading font-semibold text-sm px-6 py-2.5 rounded-xl hover:border-gray-500 transition-colors">
                 Cancel
               </button>
             </div>
@@ -189,7 +243,7 @@ const EventsManager = () => {
         </div>
       )}
 
-      {/* List */}
+      {/* ── List ── */}
       {loading ? (
         <div className="text-gray-500 font-body text-sm">Loading...</div>
       ) : events.length === 0 ? (
@@ -199,19 +253,28 @@ const EventsManager = () => {
           {events.map(event => (
             <div key={event.id} className="bg-card border border-border rounded-xl p-4 flex items-center justify-between gap-4">
               <div className="flex items-center gap-4 flex-1 min-w-0">
-                {event.coverImage && (
-                  <img src={event.coverImage} alt={event.title} className="w-12 h-12 rounded-lg object-cover flex-shrink-0" />
-                )}
+                {event.coverImage
+                  ? <img src={event.coverImage} alt={event.title} className="w-12 h-12 rounded-lg object-cover flex-shrink-0" />
+                  : <div className="w-12 h-12 rounded-lg bg-surface border border-border flex items-center justify-center text-gray-600 text-xs flex-shrink-0">IMG</div>
+                }
                 <div className="min-w-0">
                   <h3 className="font-heading font-semibold text-sm truncate">{event.title}</h3>
-                  <p className="text-gray-500 font-body text-xs mt-0.5">{event.date} · {event.status}</p>
+                  <p className="text-gray-500 font-body text-xs mt-0.5 flex items-center gap-2">
+                    <span>{event.date}</span>
+                    {event.venue && <><span>·</span><span>{event.venue}</span></>}
+                    <span>·</span>
+                    <span className={event.status === 'upcoming' ? 'text-accent' : 'text-gray-600'}>{event.status}</span>
+                    {event.photos?.length > 0 && <span className="text-gray-600">· {event.photos.length} photos</span>}
+                  </p>
                 </div>
               </div>
               <div className="flex items-center gap-2 flex-shrink-0">
-                <button onClick={() => handleEdit(event)} className="text-gray-400 hover:text-accent font-body text-xs px-3 py-1.5 rounded-lg border border-border hover:border-accent transition-colors">
+                <button onClick={() => handleEdit(event)}
+                  className="text-gray-400 hover:text-accent font-body text-xs px-3 py-1.5 rounded-lg border border-border hover:border-accent transition-colors">
                   Edit
                 </button>
-                <button onClick={() => handleDelete(event.id)} className="text-gray-400 hover:text-red-400 font-body text-xs px-3 py-1.5 rounded-lg border border-border hover:border-red-400 transition-colors">
+                <button onClick={() => handleDelete(event.id)}
+                  className="text-gray-400 hover:text-red-400 font-body text-xs px-3 py-1.5 rounded-lg border border-border hover:border-red-400 transition-colors">
                   Delete
                 </button>
               </div>
@@ -554,6 +617,11 @@ const FormSelect = ({ label, value, onChange, options }) => (
 const AdminDashboard = () => {
   const { logout } = useAuth()
   const navigate = useNavigate()
+
+  useEffect(() => {
+    document.body.classList.add('admin-page')
+    return () => document.body.classList.remove('admin-page')
+  }, [])
 
   const handleLogout = () => {
     logout()

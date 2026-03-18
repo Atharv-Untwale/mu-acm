@@ -4,7 +4,7 @@ import { Reveal } from '../components/animations'
 
 // ─── All past events (static, from old site) ──────────────────
 export const PAST_EVENTS = [
-          {
+  {
     id: 'code_canvas',
     title: 'Code Canvas',
     date: 'March 2026',
@@ -14,7 +14,7 @@ export const PAST_EVENTS = [
     speaker: null,
     tags: ['Web Development'],
   },
-        {
+  {
     id: 'vertex',
     title: 'Getting Started With Vertex AI',
     date: 'February 2026',
@@ -24,7 +24,7 @@ export const PAST_EVENTS = [
     speaker: 'Mr. Abhishek Raj Permani',
     tags: ['AI', 'Agentic AI'],
   },
-      {
+  {
     id: 'chakkravyuh_2.0',
     title: 'Chakravyuh 2.0: The Escape Room',
     date: 'February 2026',
@@ -34,7 +34,7 @@ export const PAST_EVENTS = [
     speaker: null,
     tags: ['Game'],
   },
-    {
+  {
     id: 'genesis',
     title: 'Genesis: A Web3 Awakening',
     date: 'Jul 2024',
@@ -114,7 +114,6 @@ export const PAST_EVENTS = [
     speaker: null,
     tags: ['Web Dev', 'Industry'],
   },
-
 ]
 
 // ─── Event Card ───────────────────────────────────────────────
@@ -124,8 +123,6 @@ const EventCard = ({ ev, i = 0 }) => (
       className="group block border border-[#0e0e1c] hover:border-[#00D4FF]/30
         bg-[#06060e] overflow-hidden transition-all duration-300
         hover:-translate-y-1.5 hover:shadow-[0_16px_40px_rgba(0,212,255,0.07)]">
-
-      {/* Cover image */}
       <div className="aspect-video overflow-hidden relative bg-[#0a0a14]">
         {ev.coverImage
           ? <img src={ev.coverImage} alt={ev.title}
@@ -134,16 +131,14 @@ const EventCard = ({ ev, i = 0 }) => (
           : <div className="w-full h-full flex items-center justify-center
               font-['JetBrains_Mono'] text-xs text-[#1a1a2e]">// NO_IMAGE</div>
         }
-        {/* Status badge */}
         <div className={`absolute top-3 right-3 font-['JetBrains_Mono'] text-xs px-2 py-1
           border tracking-widest backdrop-blur-sm
-          ${ev.status === 'upcoming'
+          ${ev.status === 'upcoming' || ev.status === 'Ongoing'
             ? 'border-[#00D4FF]/50 text-[#00D4FF] bg-[#00D4FF]/10'
             : 'border-[#222] text-[#7a7a90] bg-[#020205]/60'
           }`}>
           {ev.status?.toUpperCase()}
         </div>
-        {/* Tags */}
         {ev.tags?.length > 0 && (
           <div className="absolute bottom-3 left-3 flex gap-1.5">
             {ev.tags.map(tag => (
@@ -155,8 +150,6 @@ const EventCard = ({ ev, i = 0 }) => (
           </div>
         )}
       </div>
-
-      {/* Content */}
       <div className="p-5">
         {ev.date && (
           <div className="font-['JetBrains_Mono'] text-[#00D4FF]/60 text-xs tracking-widest mb-2">
@@ -180,7 +173,6 @@ const EventCard = ({ ev, i = 0 }) => (
   </Reveal>
 )
 
-// ─── Filter pill ──────────────────────────────────────────────
 const Pill = ({ label, active, onClick }) => (
   <button onClick={onClick}
     className={`font-['JetBrains_Mono'] text-xs tracking-widest px-4 py-2 border
@@ -193,7 +185,6 @@ const Pill = ({ label, active, onClick }) => (
   </button>
 )
 
-// ─── Page ─────────────────────────────────────────────────────
 const Events = () => {
   const [apiEvents, setApiEvents] = useState([])
   const [filter, setFilter]       = useState('all')
@@ -206,24 +197,20 @@ const Events = () => {
       .finally(() => setLoading(false))
   }, [])
 
-  // Merge: API events first, then static past (dedup by id)
   const apiIds    = new Set(apiEvents.map(e => e.id))
   const allEvents = [...apiEvents, ...PAST_EVENTS.filter(e => !apiIds.has(e.id))]
 
   const filtered       = filter === 'all' ? allEvents : allEvents.filter(e => e.status === filter)
-  const upcomingCount  = allEvents.filter(e => e.status === 'upcoming').length
+  const upcomingCount  = allEvents.filter(e => e.status === 'upcoming' || e.status === 'Ongoing').length
   const completedCount = allEvents.filter(e => e.status === 'completed').length
 
   return (
     <main className="pt-20 min-h-screen">
-
-      {/* ── Hero header ── */}
       <section className="relative py-24 px-6 text-center overflow-hidden">
         <div className="absolute inset-0 pointer-events-none"
           style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 0%, rgba(0,212,255,0.05) 0%, transparent 70%)' }} />
         <div className="absolute top-8 left-6 w-8 h-8 border-l border-t border-[#00D4FF]/15 pointer-events-none" />
         <div className="absolute top-8 right-6 w-8 h-8 border-r border-t border-[#00D4FF]/15 pointer-events-none" />
-
         <div className="relative z-10 max-w-3xl mx-auto">
           <div className="flex items-center justify-center gap-3 mb-4">
             <span className="font-['JetBrains_Mono'] text-[#00D4FF]/55 text-xs">02</span>
@@ -236,8 +223,6 @@ const Events = () => {
           <p className="font-['JetBrains_Mono'] text-[#7a7a90] text-xs leading-loose tracking-wide max-w-lg mx-auto">
             Workshops, hackathons, tech talks and competitions — everything MU-ACM has organized and what's coming next.
           </p>
-
-          {/* Stats */}
           <div className="flex items-center justify-center gap-8 mt-10">
             {[
               { val: allEvents.length,  label: 'Total',     color: 'text-white' },
@@ -256,14 +241,12 @@ const Events = () => {
         </div>
       </section>
 
-      {/* ── Filters ── */}
       <div className="flex justify-center gap-2 px-6 mb-12">
         {['all', 'upcoming', 'completed'].map(tab => (
           <Pill key={tab} label={tab} active={filter === tab} onClick={() => setFilter(tab)} />
         ))}
       </div>
 
-      {/* ── Grid ── */}
       <section className="px-6 pb-32 max-w-6xl mx-auto">
         {loading ? (
           <div className="grid md:grid-cols-3 gap-5">

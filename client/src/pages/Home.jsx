@@ -82,12 +82,13 @@ const Hero = ({ visible }) => {
           <span className="block text-[#00D4FF]">Club.</span>
         </h1>
 
-        <div style={s(300)} className="h-6 mb-10">
+                <div style={s(300)} className="mb-10">
           <span className="font-['JetBrains_Mono'] text-[#9090a0] text-sm tracking-wider">
-            <span className="text-[#00D4FF]/65 mr-2">//</span>
-            <Typewriter words={['Workshops & Hackathons', 'Tech Talks & Competitions', 'Community & Networking', 'Learning & Growing Together']} />
+            The tech community Medicaps{' '}
+            <span className="text-[#00D4FF]">deserves.</span>
           </span>
         </div>
+ 
 
         <div style={s(450)} className="flex flex-col sm:flex-row gap-3 justify-center mb-20">
           <a href="https://discord.com/invite/qaRz3z9rFF" target="_blank" rel="noopener noreferrer"
@@ -118,10 +119,6 @@ const Hero = ({ visible }) => {
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30">
-        <div className="w-px h-12 bg-gradient-to-b from-[#00D4FF] to-transparent animate-pulse" />
-        <span className="font-['JetBrains_Mono'] text-xs text-[#9090a0] tracking-[0.4em]">SCROLL</span>
-      </div>
     </section>
   )
 }
@@ -129,17 +126,42 @@ const Hero = ({ visible }) => {
 // ═══════════════════════════════════════════════════════════════
 // MARQUEE
 // ═══════════════════════════════════════════════════════════════
-const PAST = ['Fastn Roadshow','AINovate','Technical Tambola','Conquering Canva','Video Editing Workshop','Hands on Javascript','Genesis','Chakravyuh','Digital Marketing']
+const EVENTS_ROW  = ['Fastn Roadshow','AINovate','Technical Tambola','Conquering Canva','Video Editing Workshop','Hands on Javascript','Genesis','Chakravyuh','Digital Marketing']
+const TAGLINE_ROW = ['Build · Learn · Lead','Community & Code','Tech for Everyone','Medi-Caps University','ACM Student Chapter','Est. 2022','Workshops & Hackathons','Innovation Lab']
+ 
 const Marquee = () => (
-  <div className="relative z-10 border-y border-[#00D4FF]/8 py-3 overflow-hidden">
-    <div className="flex gap-10 whitespace-nowrap" style={{ animation: 'marqueeRun 30s linear infinite' }}>
-      {[...PAST,...PAST,...PAST].map((e,i)=>(
-        <span key={i} className="font-['JetBrains_Mono'] text-[#9090a0] text-xs tracking-[0.25em] uppercase flex items-center gap-4">
-          <span className="text-[#00D4FF]/60">◆</span>{e}
+  <div className="relative z-10 overflow-hidden py-5" style={{ borderTop: '1px solid rgba(0,212,255,0.06)', borderBottom: '1px solid rgba(0,212,255,0.06)' }}>
+ 
+    {/* Fade edges */}
+    <div className="absolute inset-y-0 left-0 w-24 z-10 pointer-events-none"
+      style={{ background: 'linear-gradient(90deg, #020205, transparent)' }} />
+    <div className="absolute inset-y-0 right-0 w-24 z-10 pointer-events-none"
+      style={{ background: 'linear-gradient(-90deg, #020205, transparent)' }} />
+ 
+    {/* Row 1 — events, left to right */}
+    <div className="flex gap-12 whitespace-nowrap mb-3" style={{ animation: 'marqueeL 35s linear infinite' }}>
+      {[...EVENTS_ROW,...EVENTS_ROW,...EVENTS_ROW].map((e,i) => (
+        <span key={i} className="flex items-center gap-4">
+          <span className="font-['Orbitron'] font-black text-white/80 text-sm tracking-widest uppercase">{e}</span>
+          <span className="text-[#00D4FF]/50 text-xs">✦</span>
         </span>
       ))}
     </div>
-    <style>{`@keyframes marqueeRun{0%{transform:translateX(0)}100%{transform:translateX(-33.333%)}}`}</style>
+ 
+    {/* Row 2 — taglines, right to left, dimmer */}
+    <div className="flex gap-12 whitespace-nowrap" style={{ animation: 'marqueeR 40s linear infinite' }}>
+      {[...TAGLINE_ROW,...TAGLINE_ROW,...TAGLINE_ROW].map((e,i) => (
+        <span key={i} className="flex items-center gap-4">
+          <span className="font-['JetBrains_Mono'] text-[#00D4FF]/40 text-xs tracking-[0.3em] uppercase">{e}</span>
+          <span className="text-[#00D4FF]/20 text-xs">◆</span>
+        </span>
+      ))}
+    </div>
+ 
+    <style>{`
+      @keyframes marqueeL { 0%{transform:translateX(0)} 100%{transform:translateX(-33.333%)} }
+      @keyframes marqueeR { 0%{transform:translateX(-33.333%)} 100%{transform:translateX(0)} }
+    `}</style>
   </div>
 )
 

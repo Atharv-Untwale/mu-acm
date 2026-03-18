@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import API from '../utils/api'
@@ -9,6 +9,11 @@ const AdminLogin = () => {
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const { login } = useAuth()
+
+  useEffect(() => {
+    document.body.classList.add('admin-page')
+    return () => document.body.classList.remove('admin-page')
+  }, [])
   const navigate = useNavigate()
 
   const handleSubmit = async (e) => {

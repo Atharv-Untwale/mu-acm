@@ -15,7 +15,28 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-* { cursor: none !important; }
+/* Custom cursor — only on non-admin pages */
+body:not(.admin-page) * { cursor: none !important; }
+
+/* Restore everything on admin pages */
+body.admin-page,
+body.admin-page * {
+  cursor: auto !important;
+}
+body.admin-page input,
+body.admin-page button,
+body.admin-page a,
+body.admin-page select,
+body.admin-page textarea {
+  cursor: pointer !important;
+}
+body.admin-page input[type="text"],
+body.admin-page input[type="email"],
+body.admin-page input[type="password"],
+body.admin-page input[type="number"],
+body.admin-page textarea {
+  cursor: text !important;
+}
 
 #cursor-dot {
   position: fixed; top: 0; left: 0;
@@ -33,6 +54,12 @@ body {
   pointer-events: none; z-index: 9998;
   transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
   will-change: transform;
+}
+
+/* Hide custom cursor dots on admin pages */
+body.admin-page #cursor-dot,
+body.admin-page #cursor-ring {
+  display: none;
 }
 
 ::-webkit-scrollbar { width: 2px; }
