@@ -4,9 +4,7 @@ import { council, heads, mentors } from '../data/teamData'
 import { Starfield, Reveal, Typewriter, Counter, useBootSequence } from '../components/animations'
 import { PAST_EVENTS } from './Events'
 
-// ═══════════════════════════════════════════════════════════════
 // BOOT SCREEN
-// ═══════════════════════════════════════════════════════════════
 const BootScreen = ({ lines, done }) => (
   <div className={`fixed inset-0 z-[100] bg-[#020205] flex flex-col items-center justify-center
     transition-opacity duration-700 pointer-events-none ${done ? 'opacity-0' : 'opacity-100'}`}>
@@ -71,7 +69,7 @@ const Hero = ({ visible }) => {
         <div style={s(0)} className="inline-flex items-center gap-2 mb-8">
           <span className="w-1.5 h-1.5 rounded-full bg-[#00FF94] shadow-[0_0_8px_#00FF94] animate-pulse" />
           <span className="font-['JetBrains_Mono'] text-[#00D4FF]/60 text-xs tracking-[0.3em] uppercase">
-            Medi-Caps University · ACM Student Chapter
+            Medicaps University · ACM Student Chapter
           </span>
         </div>
 
@@ -123,11 +121,9 @@ const Hero = ({ visible }) => {
   )
 }
 
-// ═══════════════════════════════════════════════════════════════
 // MARQUEE
-// ═══════════════════════════════════════════════════════════════
 const EVENTS_ROW  = ['Fastn Roadshow','AINovate','Technical Tambola','Conquering Canva','Video Editing Workshop','Hands on Javascript','Genesis','Chakravyuh','Digital Marketing']
-const TAGLINE_ROW = ['Build · Learn · Lead','Community & Code','Tech for Everyone','Medi-Caps University','ACM Student Chapter','Est. 2022','Workshops & Hackathons','Innovation Lab']
+const TAGLINE_ROW = ['Build · Learn · Lead','Community & Code','Tech for Everyone','Medicaps University','ACM Student Chapter','Est. 2022','Workshops & Hackathons','Innovation Lab']
  
 const Marquee = () => (
   <div className="relative z-10 overflow-hidden py-5" style={{ borderTop: '1px solid rgba(0,212,255,0.06)', borderBottom: '1px solid rgba(0,212,255,0.06)' }}>
@@ -165,9 +161,8 @@ const Marquee = () => (
   </div>
 )
 
-// ═══════════════════════════════════════════════════════════════
+
 // SECTION HEADER
-// ═══════════════════════════════════════════════════════════════
 const SectionHead = ({ index, label, title, center = false }) => (
   <div className={`mb-14 ${center ? 'text-center' : ''}`}>
     <div className={`flex items-center gap-3 mb-3 ${center ? 'justify-center' : ''}`}>
@@ -179,9 +174,8 @@ const SectionHead = ({ index, label, title, center = false }) => (
   </div>
 )
 
-// ═══════════════════════════════════════════════════════════════
+
 // ABOUT
-// ═══════════════════════════════════════════════════════════════
 const About = () => (
   <section id="about" className="relative z-10 py-32 px-6 max-w-6xl mx-auto">
     <Reveal>

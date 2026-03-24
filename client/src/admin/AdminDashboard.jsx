@@ -3,6 +3,20 @@ import { Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import API from '../utils/api'
 import toast from 'react-hot-toast'
+import { PAST_EVENTS } from '../pages/Events'
+
+// ─── Convert Google Drive share link → direct image URL ───────
+const convertDriveUrl = (url) => {
+  if (!url) return url
+  // Format: https://drive.google.com/file/d/FILE_ID/view...
+  const fileMatch = url.match(/drive\.google\.com\/file\/d\/([^/]+)/)
+  if (fileMatch) return `https://drive.google.com/uc?export=view&id=${fileMatch[1]}`
+  // Format: https://drive.google.com/open?id=FILE_ID
+  const openMatch = url.match(/drive\.google\.com\/open\?id=([^&]+)/)
+  if (openMatch) return `https://drive.google.com/uc?export=view&id=${openMatch[1]}`
+  // Already a direct URL or non-Drive link — return as-is
+  return url
+}
 
 // ─── SIDEBAR ────────────────────────────────────────────────
 const navItems = [
@@ -57,15 +71,26 @@ const Sidebar = ({ onLogout }) => {
 
 // ─── OVERVIEW ───────────────────────────────────────────────
 const Overview = () => {
-  const [counts, setCounts] = useState({ events: 0, team: 0, gallery: 0, testimonials: 0, faculty: 0 })
+  // Start with static events count so it's never 0
+  const [counts, setCounts] = useState({
+    events: PAST_EVENTS.length,
+    team: 0, gallery: 0, testimonials: 0, faculty: 0
+  })
 
   useEffect(() => {
-    Promise.all([
-      API.get('/events'), API.get('/team'), API.get('/gallery'),
-      API.get('/testimonials'), API.get('/faculty')
-    ]).then(([e, t, g, te, f]) => {
-      setCounts({ events: e.data.length, team: t.data.length, gallery: g.data.length, testimonials: te.data.length, faculty: f.data.length })
-    }).catch(() => {})
+    // Fetch each endpoint independently — one failure won't zero out the rest
+    API.get('/events').then(r => {
+      const apiIds = new Set(r.data.map(ev => ev.id))
+      const total = r.data.length + PAST_EVENTS.filter(ev => !apiIds.has(ev.id)).length
+      setCounts(p => ({ ...p, events: total }))
+    }).catch(() => {
+      // API down — keep the static count already set
+    })
+
+    API.get('/team').then(r => setCounts(p => ({ ...p, team: r.data.length }))).catch(() => {})
+    API.get('/gallery').then(r => setCounts(p => ({ ...p, gallery: r.data.length }))).catch(() => {})
+    API.get('/testimonials').then(r => setCounts(p => ({ ...p, testimonials: r.data.length }))).catch(() => {})
+    API.get('/faculty').then(r => setCounts(p => ({ ...p, faculty: r.data.length }))).catch(() => {})
   }, [])
 
   const stats = [
@@ -216,12 +241,18 @@ const EventsManager = () => {
 
             {/* Media */}
             <FieldGroup label="Media" />
-            <FormInput label="Cover Image URL" value={form.coverImage} onChange={f('coverImage')} />
+            <FormInput label="Cover Image URL" value={form.coverImage} onChange={f('coverImage')}
+              onBlur={e => setForm(p => ({ ...p, coverImage: convertDriveUrl(p.coverImage) }))}
+              placeholder="Paste any URL or Google Drive share link" />
             <div className="md:col-span-2">
               <label className="text-gray-400 font-body text-sm mb-1.5 block">
                 Extra Photos (comma-separated URLs — used in the photo grid on event page)
               </label>
               <textarea value={form.photos} onChange={e => setForm(p => ({ ...p, photos: e.target.value }))}
+                onBlur={() => setForm(p => ({
+                  ...p,
+                  photos: p.photos.split(',').map(u => convertDriveUrl(u.trim())).join(', ')
+                }))}
                 rows={2} placeholder="https://... , https://... , https://..."
                 className="w-full bg-surface border border-border rounded-xl px-4 py-3 text-white font-body text-sm
                   focus:outline-none focus:border-accent transition-colors resize-none placeholder-gray-600" />
@@ -246,12 +277,17 @@ const EventsManager = () => {
       {/* ── List ── */}
       {loading ? (
         <div className="text-gray-500 font-body text-sm">Loading...</div>
-      ) : events.length === 0 ? (
-        <div className="text-center text-gray-500 py-16 font-body">No events yet.</div>
       ) : (
         <div className="flex flex-col gap-3">
-          {events.map(event => (
-            <div key={event.id} className="bg-card border border-border rounded-xl p-4 flex items-center justify-between gap-4">
+
+          {/* Live API events */}
+          {events.length > 0 && (
+            <>
+              <div className="text-gray-500 font-body text-xs tracking-widest uppercase mb-1 mt-2">
+                ── Live Events (editable)
+              </div>
+              {events.map(event => (
+                <div key={event.id} className="bg-card border border-border rounded-xl p-4 flex items-center justify-between gap-4">
               <div className="flex items-center gap-4 flex-1 min-w-0">
                 {event.coverImage
                   ? <img src={event.coverImage} alt={event.title} className="w-12 h-12 rounded-lg object-cover flex-shrink-0" />
@@ -280,6 +316,36 @@ const EventsManager = () => {
               </div>
             </div>
           ))}
+            </>
+          )}
+
+          {/* Static past events — read only */}
+          <div className="text-gray-500 font-body text-xs tracking-widest uppercase mb-1 mt-4">
+            ── Past Events (static / read-only)
+          </div>
+          {PAST_EVENTS.map(event => (
+            <div key={event.id} className="bg-surface border border-border/50 rounded-xl p-4 flex items-center justify-between gap-4 opacity-70">
+              <div className="flex items-center gap-4 flex-1 min-w-0">
+                {event.coverImage
+                  ? <img src={event.coverImage} alt={event.title} className="w-12 h-12 rounded-lg object-cover flex-shrink-0 grayscale" />
+                  : <div className="w-12 h-12 rounded-lg bg-card border border-border flex items-center justify-center text-gray-600 text-xs flex-shrink-0">IMG</div>
+                }
+                <div className="min-w-0">
+                  <h3 className="font-heading font-semibold text-sm truncate text-gray-300">{event.title}</h3>
+                  <p className="text-gray-600 font-body text-xs mt-0.5 flex items-center gap-2">
+                    <span>{event.date}</span>
+                    <span>·</span>
+                    <span className="text-gray-600">{event.status}</span>
+                    {event.tags?.length > 0 && <span className="text-gray-700">· {event.tags.join(', ')}</span>}
+                  </p>
+                </div>
+              </div>
+              <span className="text-gray-700 font-body text-xs px-3 py-1.5 rounded-lg border border-border/40 flex-shrink-0">
+                Static
+              </span>
+            </div>
+          ))}
+
         </div>
       )}
     </div>
@@ -327,7 +393,7 @@ const TeamManager = () => {
           <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-4">
             <FormInput label="Name" value={form.name} onChange={v => setForm({ ...form, name: v })} required />
             <FormInput label="Role" value={form.role} onChange={v => setForm({ ...form, role: v })} required />
-            <FormInput label="Image URL" value={form.image} onChange={v => setForm({ ...form, image: v })} />
+            <FormInput label="Image URL" value={form.image} onChange={v => setForm({ ...form, image: v })} onBlur={() => setForm(p => ({ ...p, image: convertDriveUrl(p.image) }))} placeholder="Paste any URL or Google Drive share link" />
             <FormSelect label="Category" value={form.category} onChange={v => setForm({ ...form, category: v })} options={['core', 'mentor']} />
             <FormInput label="Order" type="number" value={form.order} onChange={v => setForm({ ...form, order: Number(v) })} />
             <FormInput label="LinkedIn URL" value={form.linkedin} onChange={v => setForm({ ...form, linkedin: v })} />
@@ -398,7 +464,7 @@ const GalleryManager = () => {
         <div className="bg-card border border-border rounded-2xl p-6 mb-6">
           <h2 className="font-heading font-bold text-lg mb-4">Add Photo</h2>
           <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-4">
-            <FormInput label="Image URL" value={form.url} onChange={v => setForm({ ...form, url: v })} required />
+            <FormInput label="Image URL" value={form.url} onChange={v => setForm({ ...form, url: v })} onBlur={() => setForm(p => ({ ...p, url: convertDriveUrl(p.url) }))} required placeholder="Paste any URL or Google Drive share link" />
             <FormInput label="Caption" value={form.caption} onChange={v => setForm({ ...form, caption: v })} />
             <FormInput label="Event Name" value={form.event} onChange={v => setForm({ ...form, event: v })} />
             <FormInput label="Category" value={form.category} onChange={v => setForm({ ...form, category: v })} />
@@ -471,7 +537,7 @@ const TestimonialsManager = () => {
             <FormInput label="Role" value={form.role} onChange={v => setForm({ ...form, role: v })} />
             <FormInput label="Company" value={form.company} onChange={v => setForm({ ...form, company: v })} />
             <FormSelect label="Type" value={form.type} onChange={v => setForm({ ...form, type: v })} options={['member', 'speaker']} />
-            <FormInput label="Image URL" value={form.image} onChange={v => setForm({ ...form, image: v })} />
+            <FormInput label="Image URL" value={form.image} onChange={v => setForm({ ...form, image: v })} onBlur={() => setForm(p => ({ ...p, image: convertDriveUrl(p.image) }))} placeholder="Paste any URL or Google Drive share link" />
             <div className="md:col-span-2">
               <label className="text-gray-400 font-body text-sm mb-1.5 block">Quote</label>
               <textarea value={form.quote} onChange={e => setForm({ ...form, quote: e.target.value })} rows={3} required className="w-full bg-surface border border-border rounded-xl px-4 py-3 text-white font-body text-sm focus:outline-none focus:border-accent transition-colors resize-none" />
@@ -551,7 +617,7 @@ const FacultyManager = () => {
             <FormInput label="Name" value={form.name} onChange={v => setForm({ ...form, name: v })} required />
             <FormInput label="Designation" value={form.designation} onChange={v => setForm({ ...form, designation: v })} />
             <FormInput label="Department" value={form.department} onChange={v => setForm({ ...form, department: v })} />
-            <FormInput label="Image URL" value={form.image} onChange={v => setForm({ ...form, image: v })} />
+            <FormInput label="Image URL" value={form.image} onChange={v => setForm({ ...form, image: v })} onBlur={() => setForm(p => ({ ...p, image: convertDriveUrl(p.image) }))} placeholder="Paste any URL or Google Drive share link" />
             <div className="md:col-span-2">
               <label className="text-gray-400 font-body text-sm mb-1.5 block">Statement</label>
               <textarea value={form.statement} onChange={e => setForm({ ...form, statement: e.target.value })} rows={3} required className="w-full bg-surface border border-border rounded-xl px-4 py-3 text-white font-body text-sm focus:outline-none focus:border-accent transition-colors resize-none" />
@@ -587,15 +653,17 @@ const FacultyManager = () => {
 }
 
 // ─── REUSABLE FORM COMPONENTS ───────────────────────────────
-const FormInput = ({ label, value, onChange, type = 'text', required }) => (
+const FormInput = ({ label, value, onChange, onBlur, type = 'text', required, placeholder = '' }) => (
   <div>
     <label className="text-gray-400 font-body text-sm mb-1.5 block">{label}</label>
     <input
       type={type}
       value={value}
       onChange={e => onChange(e.target.value)}
+      onBlur={onBlur}
       required={required}
-      className="w-full bg-surface border border-border rounded-xl px-4 py-3 text-white font-body text-sm focus:outline-none focus:border-accent transition-colors"
+      placeholder={placeholder}
+      className="w-full bg-surface border border-border rounded-xl px-4 py-3 text-white font-body text-sm focus:outline-none focus:border-accent transition-colors placeholder-gray-600"
     />
   </div>
 )
