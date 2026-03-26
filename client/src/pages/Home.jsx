@@ -20,7 +20,6 @@ const BootScreen = ({ lines, done }) => (
       <span className="font-['Orbitron'] font-black text-white text-lg tracking-widest">MU-ACM</span>
     </div>
 
-    {/* Terminal lines */}
     <div className="w-72 md:w-80 font-['JetBrains_Mono'] text-xs space-y-2">
       {lines.map((l, i) => (
         <div key={i} className={`flex items-center gap-2 ${l.accent ? 'text-[#00D4FF]' : 'text-[#7a7a90]'}`}
