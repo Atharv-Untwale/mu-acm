@@ -70,7 +70,7 @@ const Hero = ({ visible }) => {
         <div style={s(0)} className="inline-flex items-center gap-2 mb-8">
           <span className="w-1.5 h-1.5 rounded-full bg-[#00FF94] shadow-[0_0_8px_#00FF94] animate-pulse" />
           <span className="font-['JetBrains_Mono'] text-[#00D4FF]/60 text-xs tracking-[0.3em] uppercase">
-            Medi-Caps University · ACM Student Chapter
+            Medicaps University · ACM Student Chapter
           </span>
         </div>
 
@@ -83,7 +83,7 @@ const Hero = ({ visible }) => {
 
         <div style={s(300)} className="mb-10">
           <span className="font-['JetBrains_Mono'] text-[#9090a0] text-sm tracking-wider">
-            The tech community Medi-Caps{' '}
+            The tech community Medicaps{' '}
             <span className="text-[#00D4FF]">deserves.</span>
           </span>
         </div>
@@ -128,7 +128,7 @@ const Hero = ({ visible }) => {
 // MARQUEE
 
 const EVENTS_ROW  = ['Fastn Roadshow','AINovate','Technical Tambola','Conquering Canva','Video Editing Workshop','Hands on Javascript','Genesis','Chakravyuh','Digital Marketing']
-const TAGLINE_ROW = ['Build · Learn · Lead','Community & Code','Tech for Everyone','Medi-Caps University','ACM Student Chapter','Est. 2022','Workshops & Hackathons','Innovation Lab']
+const TAGLINE_ROW = ['Build · Learn · Lead','Community & Code','Tech for Everyone','Medicaps University','ACM Student Chapter','Est. 2022','Workshops & Hackathons','Innovation Lab']
 
 const Marquee = () => (
   <div className="relative z-10 overflow-hidden py-5" style={{ borderTop: '1px solid rgba(0,212,255,0.06)', borderBottom: '1px solid rgba(0,212,255,0.06)' }}>
@@ -203,14 +203,6 @@ const About = () => (
           style={{ maxHeight: '320px' }}
         />
 
-        {/* Dark gradient overlays — bottom and sides */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#020205]/70 via-transparent to-[#020205]/20 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#020205]/30 via-transparent to-[#020205]/30 pointer-events-none" />
-
-        {/* Scanlines */}
-        <div className="absolute inset-0 opacity-[0.06] pointer-events-none"
-          style={{ backgroundImage: 'repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,1) 3px,rgba(0,0,0,1) 4px)' }} />
-
         {/* EST badge */}
         <div className="absolute bottom-4 right-4 border border-[#00D4FF]/25 bg-[#020205]/80
           backdrop-blur-sm px-3 py-1.5 font-['JetBrains_Mono'] text-xs text-[#00D4FF]/60 tracking-widest">
@@ -232,7 +224,7 @@ const About = () => (
           The ACM (Association for Computing Machinery) is a 75-year-old international scientific and industrial computing society with around 100,000 members spread over 174 countries.
         </p>
         <p className="text-[#7a7a90] font-['JetBrains_Mono'] text-sm leading-[2]">
-          The Medi-Caps University ACM Student Chapter is a vibrant community of like-minded individuals with a shared love for technology. Dedicated to fostering growth in the world of computing, we organise events that cater to the holistic technical needs of the job market.
+          The Medicaps University ACM Student Chapter is a vibrant community of like-minded individuals with a shared love for technology. Dedicated to fostering growth in the world of computing, we organise events that cater to the holistic technical needs of the job market.
         </p>
       </Reveal>
 
@@ -475,14 +467,14 @@ const FACULTY = [
   {
     name: 'Prof. Dr. Latika Jindal',
     designation: 'Head of Techno Clubs',
-    department: 'Medi-Caps University',
+    department: 'Medicaps University',
     image: '/faculty-latika-jindal.webp',
     statement: 'My journey with the Techno Club and the ACM Student Chapter has been both inspiring and fulfilling. As Head of the Techno Club, I have always believed that technology is best learned by doing, sharing, and growing together. Working closely with ACM as an integral part of the club has given me the opportunity to mentor students, support innovative ideas, and create platforms where curiosity turns into real skills. I am deeply passionate about technology, research, and practical learning, and I enjoy helping students connect classroom concepts with real-world applications through workshops, projects, and collaborative initiatives. For me, this role is not just about leading, but about building a strong tech community where students feel motivated, confident, and ready to shape the future through technology.',
   },
   {
     name: 'Prof. Priyanka Dhasal',
     designation: 'Faculty Coordinator',
-    department: 'Medi-Caps University',
+    department: 'Medicaps University',
     image: '/faculty-priyanka-dhasal.webp',
     statement: 'Add Prof. Priyanka Dhasal\'s statement here.',
   },
@@ -548,7 +540,7 @@ const FacultySection = () => (
 // FAQ
 
 const FAQS = [
-  { q:'Who can join MU-ACM?', a:'Any student at Medi-Caps University who has a passion for technology and computing.' },
+  { q:'Who can join MU-ACM?', a:'Any student at Medicaps University who has a passion for technology and computing.' },
   { q:'What activities does MU-ACM organize?', a:'Workshops, hackathons, tech talks, coding competitions, and various technical events throughout the year.' },
   { q:'Do I need prior programming experience?', a:'No! MU-ACM welcomes all skill levels — beginners and advanced programmers alike.' },
   { q:'How can I become a member?', a:'Register on our website or reach out on Discord.' },

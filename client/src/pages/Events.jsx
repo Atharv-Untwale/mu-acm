@@ -126,8 +126,7 @@ const EventCard = ({ ev, i = 0 }) => (
       <div className="aspect-video overflow-hidden relative bg-[#0a0a14]">
         {ev.coverImage
           ? <img src={ev.coverImage} alt={ev.title}
-              className="w-full h-full object-cover opacity-50 group-hover:opacity-80
-                group-hover:scale-105 transition-all duration-500 grayscale group-hover:grayscale-0" />
+              className="w-full h-full object-cover opacity-50 group-hover:opacity-80 />
           : <div className="w-full h-full flex items-center justify-center
               font-['JetBrains_Mono'] text-xs text-[#1a1a2e]">// NO_IMAGE</div>
         }
