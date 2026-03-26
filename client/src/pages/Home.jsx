@@ -204,14 +204,6 @@ const About = () => (
           style={{ maxHeight: '320px' }}
         />
 
-        {/* Dark gradient overlays — bottom and sides */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#020205]/70 via-transparent to-[#020205]/20 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#020205]/30 via-transparent to-[#020205]/30 pointer-events-none" />
-
-        {/* Scanlines */}
-        <div className="absolute inset-0 opacity-[0.06] pointer-events-none"
-          style={{ backgroundImage: 'repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,1) 3px,rgba(0,0,0,1) 4px)' }} />
-
         {/* EST badge */}
         <div className="absolute bottom-4 right-4 border border-[#00D4FF]/25 bg-[#020205]/80
           backdrop-blur-sm px-3 py-1.5 font-['JetBrains_Mono'] text-xs text-[#00D4FF]/60 tracking-widest">
