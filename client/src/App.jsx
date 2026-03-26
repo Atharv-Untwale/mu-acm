@@ -35,7 +35,6 @@ function App() {
               <Route path="/team" element={<Team />} />
               <Route path="/gallery" element={<Gallery />} />
               <Route path="/contributors" element={<Contributors />} />
-              <Route path="/achievements" element={<Achievements />} />
             </Routes>
             <Footer />
           </>
