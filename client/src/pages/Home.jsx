@@ -71,7 +71,7 @@ const Hero = ({ visible }) => {
         <div style={s(0)} className="inline-flex items-center gap-2 mb-8">
           <span className="w-1.5 h-1.5 rounded-full bg-[#00FF94] shadow-[0_0_8px_#00FF94] animate-pulse" />
           <span className="font-['JetBrains_Mono'] text-[#00D4FF]/60 text-xs tracking-[0.3em] uppercase">
-            Medi-Caps University · ACM Student Chapter
+            Medicaps University · ACM Student Chapter
           </span>
         </div>
 
