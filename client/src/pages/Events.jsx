@@ -206,7 +206,7 @@ const Events = () => {
 
   return (
     <main className="pt-20 min-h-screen">
-      <section className="relative py-24 px-6 text-center overflow-hidden">
+      <section className="relative py-12 md:py-24 px-6 text-center overflow-hidden">
         <div className="absolute inset-0 pointer-events-none"
           style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 0%, rgba(0,212,255,0.05) 0%, transparent 70%)' }} />
         <div className="absolute top-8 left-6 w-8 h-8 border-l border-t border-[#00D4FF]/15 pointer-events-none" />
@@ -217,7 +217,7 @@ const Events = () => {
             <div className="w-5 h-px bg-[#00D4FF]/25" />
             <span className="font-['JetBrains_Mono'] text-[#00D4FF]/60 text-xs tracking-[0.35em] uppercase">Events</span>
           </div>
-          <h1 className="font-['Orbitron'] font-black text-4xl md:text-6xl text-white mb-4">
+          <h1 className="font-['Orbitron'] font-black text-2xl md:text-5xl text-white mb-4">
             Our <span className="text-[#00D4FF]">Events</span>
           </h1>
           <p className="font-['JetBrains_Mono'] text-[#7a7a90] text-xs leading-loose tracking-wide max-w-lg mx-auto">
@@ -247,7 +247,7 @@ const Events = () => {
         ))}
       </div>
 
-      <section className="px-6 pb-32 max-w-6xl mx-auto">
+      <section className="px-6 pb-16 md:pb-32 max-w-6xl mx-auto">
         {loading ? (
           <div className="grid md:grid-cols-3 gap-5">
             {[...Array(6)].map((_, i) => (
@@ -262,7 +262,7 @@ const Events = () => {
             ))}
           </div>
         ) : filtered.length === 0 ? (
-          <div className="text-center py-32 font-['JetBrains_Mono'] text-[#1a1a2e] text-xs tracking-widest">
+          <div className="text-center py-16 md:py-32 font-['JetBrains_Mono'] text-[#1a1a2e] text-xs tracking-widest">
             // NO_{filter.toUpperCase()}_EVENTS_FOUND
           </div>
         ) : (

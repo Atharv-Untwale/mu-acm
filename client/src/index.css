@@ -15,51 +15,32 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Custom cursor — only on non-admin pages */
-body:not(.admin-page) * { cursor: none !important; }
+/* Custom cursor — desktop only */
+@media (pointer: fine) {
+  * { cursor: none !important; }
 
-/* Restore everything on admin pages */
-body.admin-page,
-body.admin-page * {
-  cursor: auto !important;
-}
-body.admin-page input,
-body.admin-page button,
-body.admin-page a,
-body.admin-page select,
-body.admin-page textarea {
-  cursor: pointer !important;
-}
-body.admin-page input[type="text"],
-body.admin-page input[type="email"],
-body.admin-page input[type="password"],
-body.admin-page input[type="number"],
-body.admin-page textarea {
-  cursor: text !important;
-}
+  #cursor-dot {
+    position: fixed; top: 0; left: 0;
+    width: 6px; height: 6px;
+    background: #00D4FF; border-radius: 50%;
+    pointer-events: none; z-index: 9999;
+    box-shadow: 0 0 6px rgba(0,212,255,0.8);
+    will-change: transform;
+  }
 
-#cursor-dot {
-  position: fixed; top: 0; left: 0;
-  width: 6px; height: 6px;
-  background: #00D4FF; border-radius: 50%;
-  pointer-events: none; z-index: 9999;
-  box-shadow: 0 0 6px rgba(0,212,255,0.8);
-  will-change: transform;
+  #cursor-ring {
+    position: fixed; top: 0; left: 0;
+    width: 24px; height: 24px;
+    border: 1px solid rgba(0,212,255,0.35); border-radius: 50%;
+    pointer-events: none; z-index: 9998;
+    transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+    will-change: transform;
+  }
 }
 
-#cursor-ring {
-  position: fixed; top: 0; left: 0;
-  width: 24px; height: 24px;
-  border: 1px solid rgba(0,212,255,0.35); border-radius: 50%;
-  pointer-events: none; z-index: 9998;
-  transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
-  will-change: transform;
-}
-
-/* Hide custom cursor dots on admin pages */
-body.admin-page #cursor-dot,
-body.admin-page #cursor-ring {
-  display: none;
+/* Hide cursor elements on touch devices */
+@media (pointer: coarse) {
+  #cursor-dot, #cursor-ring { display: none; }
 }
 
 ::-webkit-scrollbar { width: 2px; }

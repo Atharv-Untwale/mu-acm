@@ -81,7 +81,7 @@ const Team = () => (
   <main className="pt-20 min-h-screen">
 
     {/* Header */}
-    <section className="relative py-24 px-6 text-center overflow-hidden">
+    <section className="relative py-12 md:py-24 px-6 text-center overflow-hidden">
       <div className="absolute inset-0 pointer-events-none"
         style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 0%, rgba(0,212,255,0.05) 0%, transparent 70%)' }} />
       <div className="absolute top-8 left-6 w-8 h-8 border-l border-t border-[#00D4FF]/15 pointer-events-none" />
@@ -93,7 +93,7 @@ const Team = () => (
           <div className="w-5 h-px bg-[#00D4FF]/25" />
           <span className="font-['JetBrains_Mono'] text-[#00D4FF]/60 text-xs tracking-[0.35em] uppercase">2025 – 26</span>
         </div>
-        <h1 className="font-['Orbitron'] font-black text-4xl md:text-6xl text-white mb-4">
+        <h1 className="font-['Orbitron'] font-black text-3xl md:text-6xl text-white mb-4">
           Our <span className="text-[#00D4FF]">Team</span>
         </h1>
         <p className="font-['JetBrains_Mono'] text-[#7a7a90] text-sm leading-loose max-w-md mx-auto">
@@ -102,7 +102,7 @@ const Team = () => (
       </div>
     </section>
 
-    <div className="max-w-6xl mx-auto px-6 pb-32 flex flex-col gap-20">
+    <div className="max-w-6xl mx-auto px-6 pb-16 md:pb-32 flex flex-col gap-8 md:gap-20">
 
       {/* Council */}
       <div>
