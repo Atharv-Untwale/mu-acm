@@ -457,7 +457,7 @@ const FACULTY = [
     designation: 'Head of Techno Clubs',
     department: 'Medi-Caps University',
     image: '/faculty-latika-jindal.webp',
-    statement: 'Add Prof. Dr. Latika Jindal\'s statement here.',
+    statement: 'My journey with the **Techno Club** and the **ACM Student Chapter** has been both inspiring and fulfilling. As Head of the Techno Club, I have always believed that technology is best learned by doing, sharing, and growing together. Working closely with ACM as an integral part of the club has given me the opportunity to mentor students, support innovative ideas, and create platforms where curiosity turns into real skills. I am deeply passionate about technology, research, and practical learning, and I enjoy helping students connect classroom concepts with real-world applications through workshops, projects, and collaborative initiatives. For me, this role is not just about leading, but about building a strong tech community where students feel motivated, confident, and ready to shape the future through technology.',
   },
   {
     name: 'Prof. Priyanka Dhasal',
