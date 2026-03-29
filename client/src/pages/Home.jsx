@@ -71,7 +71,7 @@ const Hero = ({ visible }) => {
         <div style={s(0)} className="inline-flex items-center gap-2 mb-8">
           <span className="w-1.5 h-1.5 rounded-full bg-[#00FF94] shadow-[0_0_8px_#00FF94] animate-pulse" />
           <span className="font-['JetBrains_Mono'] text-[#00D4FF]/60 text-xs tracking-[0.3em] uppercase">
-            Medi-Caps University · ACM Student Chapter
+            Medicaps University · ACM Student Chapter
           </span>
         </div>
 
@@ -84,18 +84,18 @@ const Hero = ({ visible }) => {
 
         <div style={s(300)} className="mb-10">
           <span className="font-['JetBrains_Mono'] text-[#9090a0] text-sm tracking-wider">
-            The tech community Medi-Caps{' '}
+            The tech community Medicaps{' '}
             <span className="text-[#00D4FF]">deserves.</span>
           </span>
         </div>
 
         <div style={s(450)} className="flex flex-col sm:flex-row gap-3 justify-center mb-12 md:mb-20">
-          <a href="https://discord.com/invite/qaRz3z9rFF" target="_blank" rel="noopener noreferrer"
+          <a href="https://chat.whatsapp.com/GgpDcfZc8KwJambREQf823" target="_blank" rel="noopener noreferrer"
             className="group relative overflow-hidden bg-[#00D4FF] text-[#020205] font-['Orbitron'] font-black
               text-xs tracking-widest px-8 py-3.5 transition-all duration-300
               hover:shadow-[0_0_28px_rgba(0,212,255,0.4)]">
             <span className="absolute inset-0 bg-white/10 translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-300" />
-            <span className="relative z-10">JOIN DISCORD →</span>
+            <span className="relative z-10">JOIN OUR COMMUNITY →</span>
           </a>
           <a href="/events"
             className="group relative overflow-hidden border border-[#00D4FF]/30 hover:border-[#00D4FF]/70
@@ -200,29 +200,24 @@ const About = () => (
         <img
           src="/about.jpg"
           alt="MU-ACM Team"
-          className="w-full object-cover object-center transition-all duration-700
-            grayscale group-hover:grayscale-0"
-          style={{ maxHeight: '320px' }}
+          className="w-full object-contain object-center transition-all duration-700"
         />
 
         {/* Dark gradient overlays — bottom and sides */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#020205]/70 via-transparent to-[#020205]/20 pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#020205]/30 via-transparent to-[#020205]/30 pointer-events-none" />
 
-        {/* Scanlines */}
-        <div className="absolute inset-0 opacity-[0.06] pointer-events-none"
-          style={{ backgroundImage: 'repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,1) 3px,rgba(0,0,0,1) 4px)' }} />
-
+      
         {/* EST badge */}
         <div className="absolute bottom-4 right-4 border border-[#00D4FF]/25 bg-[#020205]/80
           backdrop-blur-sm px-3 py-1.5 font-['JetBrains_Mono'] text-xs text-[#00D4FF]/60 tracking-widest">
-          EST. 2022
+          EST. 2019
         </div>
 
         {/* Member count badge */}
         <div className="absolute bottom-4 left-4 border border-[#00D4FF]/20 bg-[#020205]/80
           backdrop-blur-sm px-3 py-1.5 font-['JetBrains_Mono'] text-xs text-[#9090a0] tracking-widest">
-          MU-ACM CORE TEAM
+          TEAM MU-ACM 2025-26
         </div>
       </div>
     </Reveal>
@@ -329,17 +324,13 @@ const TEAM_TESTIMONIALS = [
   { name: 'Heenal Jain',      role: 'Operations Head',     quote: 'Working as the Operations and Management Head at ACM has been a truly rewarding part of my college journey. This role has given me the opportunity to coordinate with an amazing team and ensure that our events and initiatives run smoothly. From managing responsibilities to solving challenges during activities, every experience has helped me grow in leadership, organization, and teamwork.' },
   { name: 'Tarang Choure',    role: 'Operations Co-Head',  quote: 'Being the Operations Co-Head at ACM has been an important part of my college journey. It allowed me to work closely with a great team and form strong connections with people who shared my enthusiasm. I managed responsibilities and supported various activities, gaining a lot of knowledge both inside and outside the college.' },
   { name: 'Gaurang Gupta',    role: 'PR Head',             quote: 'Being the Corporate and PR Head at ACM has been a truly transformative journey. ACM has given me the space to grow as a leader, communicator, and strategist. From collaborating with industry partners to building meaningful campus relations, every initiative has strengthened my confidence and shaped my professional identity.' },
-  { name: 'Sabhyata Jain',    role: 'PR Co-Head',          quote: 'MU-ACM gave me a platform to combine creativity with purpose. Every campaign we run is a chance to bring more people into the world of technology.' },
-  { name: 'Yash Thakur',      role: 'Technical Head',      quote: 'The technical team at MU-ACM is where ideas become reality. We don\'t just talk about building things — we sit down and actually build them.' },
+  { name: 'Sabhyata Jain',    role: 'PR Co-Head',          quote: 'Being the PR Co-Head of this club has been a wonderful journey of learning and leadership. It allowed me to interact with diverse people, enhance my communication skills, and contribute to building the club’s presence. The teamwork, energy, and dedication of our members make this club truly special. ' },
+  { name: 'Yash Thakur',      role: 'Technical Head',      quote: 'Being part of ACM has allowed me to collaborate with talented peers who share the same passion for technology and innovation. It has been exciting to contribute to building projects, supporting events, and creating an environment where students can explore and grow technically. What makes this journey even more special is seeing ideas turn into real outcomes and watching the team grow together.' },
   { name: 'Aditi Agrahari',   role: 'Content Head',        quote: 'Working as the Content Head of ACM has taught me so much. I might be the youngest core member in the team, but that\'s actually what makes it even more exciting — I get to learn, experiment, and bring a fresh perspective. This role has made me more confident and more connected to the club, and I genuinely enjoy every part of it.' },
   { name: 'Ikshit Jain',      role: 'Graphics Head',       quote: 'Working as the Graphics Head of ACM has been an amazing learning experience. Being responsible for the visual identity of the club, I get the opportunity to turn ideas into creative designs that represent our events and initiatives. This role has boosted my confidence and allowed me to contribute meaningfully to the club.' },
   { name: 'Vaishnavi Patidar', role: 'Graphics Co-Head',   quote: 'Being part of the ACM student chapter as Graphics Co-Head has been a truly rewarding experience. This role gave me the opportunity to combine creativity with teamwork while contributing to the chapter\'s activities and events. I\'m grateful for the chance to grow both creatively and professionally as part of the ACM community.' },
   { name: 'Kalash Kale',      role: 'Video Editing Head',  quote: 'Being a part of MU-ACM has been a really amazing journey. As the head of Video Editing and Production, I had the opportunity to work alongside amazing people and be part of a truly supportive team. I not only developed skills in my domain, but gained valuable abilities in teamwork, collaboration, and leadership.' },
-  { name: 'Damita Pathak',    role: 'Mentor',              quote: 'Watching this chapter grow has been truly rewarding. The students here have an exceptional drive and a genuine hunger to make a difference.' },
-  { name: 'Riddhima Kaushal', role: 'Mentor',              quote: 'MU-ACM represents everything a student community should be — inclusive, driven, and always striving to raise the bar for what\'s possible.' },
-  { name: 'Ashwin Parande',   role: 'Mentor',              quote: 'Mentoring at MU-ACM is as much a learning experience for me as it is for the students. The curiosity and creativity here never ceases to inspire.' },
-  { name: 'Aadeesh Jain',     role: 'Mentor',              quote: 'The growth I\'ve seen in MU-ACM\'s members — technically and as individuals — is a testament to what a strong community and shared purpose can achieve.' },
-]
+  ]
 
 const TestimonialsSection = () => (
   <section id="testimonials" className="relative z-10 py-16 md:py-32 px-6 border-y border-[#00D4FF]/5">
@@ -477,14 +468,14 @@ const FACULTY = [
   {
     name: 'Prof. Dr. Latika Jindal',
     designation: 'Head of Techno Clubs',
-    department: 'Medi-Caps University',
+    department: 'Medicaps University',
     image: '/faculty-latika-jindal.webp',
-    statement: 'Add Prof. Dr. Latika Jindal\'s statement here.',
+    statement: 'My journey with the Techno Club and the ACM Student Chapter has been both inspiring and fulfilling. As Head of the Techno Club, I have always believed that technology is best learned by doing, sharing, and growing together. Working closely with ACM as an integral part of the club has given me the opportunity to mentor students, support innovative ideas, and create platforms where curiosity turns into real skills. I am deeply passionate about technology, research, and practical learning, and I enjoy helping students connect classroom concepts with real-world applications through workshops, projects, and collaborative initiatives. For me, this role is not just about leading, but about building a strong tech community where students feel motivated, confident, and ready to shape the future through technology.',
   },
   {
     name: 'Prof. Priyanka Dhasal',
     designation: 'Faculty Coordinator',
-    department: 'Medi-Caps University',
+    department: 'Medicaps University',
     image: '/faculty-priyanka-dhasal.webp',
     statement: 'Add Prof. Priyanka Dhasal\'s statement here.',
   },
@@ -610,12 +601,12 @@ const JoinSection = () => (
           <p className="font-['JetBrains_Mono'] text-[#6a6a7e] text-xs mb-10 leading-loose">
             Connect with like-minded tech enthusiasts. Share ideas. Grow together.
           </p>
-          <a href="https://discord.com/invite/qaRz3z9rFF" target="_blank" rel="noopener noreferrer"
+          <a href="https://chat.whatsapp.com/GgpDcfZc8KwJambREQf823" target="_blank" rel="noopener noreferrer"
             className="group relative overflow-hidden inline-block border border-[#00D4FF]/50
               text-[#00D4FF] font-['Orbitron'] font-black text-xs px-10 py-4 tracking-widest
               hover:shadow-[0_0_32px_rgba(0,212,255,0.3)] transition-all duration-400">
             <span className="absolute inset-0 bg-[#00D4FF] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-            <span className="relative z-10 group-hover:text-[#020205] transition-colors duration-300">JOIN DISCORD →</span>
+            <span className="relative z-10 group-hover:text-[#020205] transition-colors duration-300">JOIN OUR COMMUNITY →</span>
           </a>
         </div>
       </div>

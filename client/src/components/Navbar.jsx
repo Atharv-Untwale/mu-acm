@@ -85,12 +85,12 @@ export default function Navbar() {
               <span className="w-1.5 h-1.5 rounded-full bg-[#00FF94] animate-pulse shadow-[0_0_5px_#00FF94]" />
               <span className="font-['JetBrains_Mono'] text-xs text-[#9090a8] tracking-widest">ONLINE</span>
             </div>
-            <a href="https://discord.com/invite/qaRz3z9rFF" target="_blank" rel="noopener noreferrer"
+            <a href="https://chat.whatsapp.com/GgpDcfZc8KwJambREQf823" target="_blank" rel="noopener noreferrer"
               className="group relative overflow-hidden border border-[#00D4FF]/30 hover:border-[#00D4FF]/70
                 font-['Orbitron'] font-bold text-xs text-[#00D4FF] px-5 py-2.5 tracking-widest
                 transition-all duration-300 hover:shadow-[0_0_16px_rgba(0,212,255,0.2)]">
               <span className="absolute inset-0 bg-[#00D4FF] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-              <span className="relative z-10 group-hover:text-[#020205] transition-colors duration-300">JOIN DISCORD</span>
+              <span className="relative z-10 group-hover:text-[#020205] transition-colors duration-300">JOIN OUR COMMUNITY</span>
             </a>
           </div>
 

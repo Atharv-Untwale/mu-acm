@@ -10,7 +10,7 @@ import Contributors from './pages/Contributors'
 import AdminLogin from './admin/AdminLogin'
 import AdminDashboard from './admin/AdminDashboard'
 import ProtectedRoute from './components/ProtectedRoute'
-import Achievements from './pages/Achievements'
+// import Achievements from './pages/Achievements'
 
 function App() {
   return (
