@@ -12,7 +12,7 @@ export const heads = [
   { name: 'Yash Thakur', role: 'Technical Head', image: '/yash.png', linkedin: '', github: '', instagram: '' },
   { name: 'Aditi Agrahari', role: 'Content Head', image: '/Aditi Agrahari.jpg', linkedin: 'www.linkedin.com/in/aditi-agrahari-45516632a', github: 'https://github.com/aditiagrahari18-jpg', instagram: '' },
   { name: 'Ikshit Jain', role: 'Graphics Head', image: '/IKSHT_JAIN(GRAPHICS_HEAD) (1).jpg', linkedin: 'https://www.linkedin.com/in/ikshit-jain-b80981287', github: 'https://github.com/ikshitjain', instagram: 'https://instagram.com/ikshit.jain' },
-  { name: 'Vaishnavi Patidar', role: 'Graphics Co-Head', image: '/Vaishnavi_Patidar(Graphics_executive).jpg', linkedin: 'https://www.linkedin.com/in/vaishnavi-patidar-b02560322?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', github: '', instagram: 'https://www.instagram.com/lensly_._?igsh=MWR5bXF4bWlyM2ZnNg==' },
+  { name: 'Vaishnavi Patidar', role: 'Graphics Co-Head', image: '/Vaishnavi.jpeg', linkedin: 'https://www.linkedin.com/in/vaishnavi-patidar-b02560322?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', github: '', instagram: 'https://www.instagram.com/lensly_._?igsh=MWR5bXF4bWlyM2ZnNg==' },
   { name: 'Kalash Kale', role: 'Video Editing Head', image: '/kalash_kale.png', linkedin: 'www.linkedin.com/in/kalashkale', github: 'https://github.com/KalashKale', instagram: 'https://www.instagram.com/kalash256bytes/' },
 ]
 
@@ -76,7 +76,7 @@ export const departments = [
     name: 'Graphics Team',
     members: [
       { name: 'Ikshit Jain', role: 'Head', image: '/IKSHT_JAIN(GRAPHICS_HEAD) (1).jpg', linkedin: 'https://www.linkedin.com/in/ikshit-jain-b80981287', github: 'https://github.com/ikshitjain', instagram: 'https://instagram.com/ikshit.jain' },
-      { name: 'Vaishnavi Patidar', role: 'Co-Head', image: '/Vaishnavi_Patidar(Graphics_executive).jpg', linkedin: 'https://www.linkedin.com/in/vaishnavi-patidar-b02560322?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', github: '', instagram: 'https://www.instagram.com/lensly_._?igsh=MWR5bXF4bWlyM2ZnNg==' },
+      { name: 'Vaishnavi Patidar', role: 'Co-Head', image: '/Vaishnavi.jpeg', linkedin: 'https://www.linkedin.com/in/vaishnavi-patidar-b02560322?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', github: '', instagram: 'https://www.instagram.com/lensly_._?igsh=MWR5bXF4bWlyM2ZnNg==' },
       { name: 'Khanak Singh Mourya', role: 'Executive', image: '/Teams/Graphics/Khanak singh mourya(graphic executive) (1).jpg', linkedin: 'https://in.linkedin.com/in/w-khanak-s-m-7321b0345', github: '', instagram: 'https://www.instagram.com/khanak.s.m?igsh=MTJjY3E4Y29wNWJnNQ==' },
       { name: 'Aditya Malviya', role: 'Executive', image: '/Teams/Graphics/Aditya_malviya ( graphicsexecutive ) jpg (1).jpg', linkedin: '', github: '', instagram: '' },
     ]

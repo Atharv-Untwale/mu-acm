@@ -37,9 +37,79 @@ export const PAST_EVENTS = [
   {
     id: 'genesis',
     title: 'Genesis: A Web3 Awakening',
-    date: 'Jul 2024',
+    date: 'Sept 2025',
     status: 'completed',
-    coverImage: '/events/genesis.webp',
+    coverImage: '/Events/Genesis.jpg',
+    description: 'The founding event of MU-ACM — a celebration of community, technology, and the beginning of something extraordinary at Medi-Caps University.',
+    speaker: 'Mr. Anurag Bajpai & Mr. Jasneet Singh Saini',
+    tags: ['Community', 'Web3'],
+  },
+    {
+    id: 'hacksheild',
+    title: 'HackShield',
+    date: 'Jul 2025',
+    status: 'completed',
+    coverImage: '/Events/HackSheild.jpg',
+    description: 'The founding event of MU-ACM — a celebration of community, technology, and the beginning of something extraordinary at Medi-Caps University.',
+    speaker: 'Mr. Dhwanil Bhavsar & Mr. Mahesh Dhakad',
+    tags: ['Community', 'Web3'],
+  },
+    {
+    id: 'design',
+    title: 'Design Unlocked: A Beginner Guide to Figma',
+    date: 'June 2025',
+    status: 'completed',
+    coverImage: '/Events/Design_Unlocked.jpg',
+    description: 'The founding event of MU-ACM — a celebration of community, technology, and the beginning of something extraordinary at Medi-Caps University.',
+    speaker: 'Mr. Udit Chawda',
+    tags: ['Community', 'Web3'],
+  },
+      {
+    id: 'chakravyuh',
+    title: 'Chakravyuh: The Escape Room',
+    date: 'March 2025',
+    status: 'completed',
+    coverImage: '/Events/Chakravyuh.jpg',
+    description: 'The founding event of MU-ACM — a celebration of community, technology, and the beginning of something extraordinary at Medi-Caps University.',
+    speaker: null,
+    tags: ['Community', 'Web3'],
+  },
+  {
+    id: 'digital-marketing',
+    title: 'Digital Marketing',
+    date: 'Feb 2025',
+    status: 'completed',
+    coverImage: '/Events/digi.jpg',
+    description: 'The founding event of MU-ACM — a celebration of community, technology, and the beginning of something extraordinary at Medi-Caps University.',
+    speaker: 'Mr. Anurag Bajpai & Mr. Jasneet Singh Saini',
+    tags: ['Community', 'Web3'],
+  },
+    {
+    id: 'webify',
+    title: 'Webify: All About Web Dev',
+    date: 'Feb 2025',
+    status: 'completed',
+    coverImage: '/Events/Webify.jpg',
+    description: 'The founding event of MU-ACM — a celebration of community, technology, and the beginning of something extraordinary at Medi-Caps University.',
+    speaker: 'Mr. Anurag Bajpai & Mr. Jasneet Singh Saini',
+    tags: ['Community', 'Web3'],
+  },
+  {
+    id: 'hacksangram',
+    title: 'HackSangram',
+    date: 'Jan 2025',
+    status: 'completed',
+    coverImage: '/Events/Hack_Sangram.jpg',
+    description: 'The founding event of MU-ACM — a celebration of community, technology, and the beginning of something extraordinary at Medi-Caps University.',
+    speaker: 'Mr. Anurag Bajpai & Mr. Jasneet Singh Saini',
+    tags: ['Community', 'Web3'],
+  },
+    {
+    id: 'open_source',
+    title: 'Understanding Open Source',
+    date: 'Oct 2024',
+    status: 'completed',
+    coverImage: '/Events/Open Source.png',
     description: 'The founding event of MU-ACM — a celebration of community, technology, and the beginning of something extraordinary at Medi-Caps University.',
     speaker: 'Mr. Anurag Bajpai & Mr. Jasneet Singh Saini',
     tags: ['Community', 'Web3'],
@@ -47,7 +117,7 @@ export const PAST_EVENTS = [
   {
     id: 'basics-of-javascript',
     title: 'Basics of Javascript',
-    date: 'Feb 2025',
+    date: 'Sept 2024',
     status: 'completed',
     coverImage: '/events/basics-of-js.webp',
     description: 'A free online workshop introducing participants to the fundamentals and practical applications of JavaScript. Covered variables, functions, DOM manipulation and more.',
@@ -125,9 +195,7 @@ const EventCard = ({ ev, i = 0 }) => (
         hover:-translate-y-1.5 hover:shadow-[0_16px_40px_rgba(0,212,255,0.07)]">
       <div className="aspect-video overflow-hidden relative bg-[#0a0a14]">
         {ev.coverImage
-          ? <img src={ev.coverImage} alt={ev.title}
-              className="w-full h-full object-cover opacity-50 group-hover:opacity-80
-                group-hover:scale-105 transition-all duration-500 grayscale group-hover:grayscale-0" />
+          ? <img src={ev.coverImage} alt={ev.title}  />
           : <div className="w-full h-full flex items-center justify-center
               font-['JetBrains_Mono'] text-xs text-[#1a1a2e]">// NO_IMAGE</div>
         }
