@@ -10,7 +10,7 @@ export const PAST_EVENTS = [
     date: 'March 2026',
     status: 'Ongoing',
     coverImage: '/Events/Code Canvas.png',
-    description: 'The founding event of MU-ACM — a celebration of community, technology, and the beginning of something extraordinary at Medi-Caps University.',
+    description: 'An open canvas for coders — participants bring their ideas to life through code, competing in a creative coding challenge that blends problem-solving with design thinking.',
     speaker: null,
     tags: ['Web Development'],
   },
@@ -20,7 +20,7 @@ export const PAST_EVENTS = [
     date: 'February 2026',
     status: 'completed',
     coverImage: '/Events/Vertex AI.png',
-    description: 'The founding event of MU-ACM — a celebration of community, technology, and the beginning of something extraordinary at Medi-Caps University.',
+    description: 'A hands-on session exploring Google\'s Vertex AI platform — covering model deployment, generative AI APIs, and how to build intelligent applications on Google Cloud.',
     speaker: 'Mr. Abhishek Raj Permani',
     tags: ['AI', 'Agentic AI'],
   },
@@ -30,7 +30,7 @@ export const PAST_EVENTS = [
     date: 'February 2026',
     status: 'completed',
     coverImage: '/Events/Poster (7).png',
-    description: 'The founding event of MU-ACM — a celebration of community, technology, and the beginning of something extraordinary at Medi-Caps University.',
+    description: 'The sequel to our hit escape room event — teams navigated through a maze of technical puzzles, logic challenges, and cryptic clues to find their way out.',
     speaker: null,
     tags: ['Game'],
   },
@@ -40,39 +40,39 @@ export const PAST_EVENTS = [
     date: 'Sept 2025',
     status: 'completed',
     coverImage: '/Events/Genesis.jpg',
-    description: 'The founding event of MU-ACM — a celebration of community, technology, and the beginning of something extraordinary at Medi-Caps University.',
+    description: 'An immersive deep-dive into the world of Web3 — covering blockchain fundamentals, decentralized applications, smart contracts, and the future of the internet.',
     speaker: 'Mr. Anurag Bajpai & Mr. Jasneet Singh Saini',
     tags: ['Community', 'Web3'],
   },
-    {
+  {
     id: 'hacksheild',
     title: 'HackShield',
     date: 'Jul 2025',
     status: 'completed',
     coverImage: '/Events/HackSheild.jpg',
-    description: 'The founding event of MU-ACM — a celebration of community, technology, and the beginning of something extraordinary at Medi-Caps University.',
+    description: 'A cybersecurity-focused hackathon where participants tackled real-world security challenges — from ethical hacking to building defensive tools that protect digital infrastructure.',
     speaker: 'Mr. Dhwanil Bhavsar & Mr. Mahesh Dhakad',
-    tags: ['Community', 'Web3'],
+    tags: ['Hackathon', 'Cybersecurity'],
   },
-    {
+  {
     id: 'design',
     title: 'Design Unlocked: A Beginner Guide to Figma',
     date: 'June 2025',
     status: 'completed',
     coverImage: '/Events/Design_Unlocked.jpg',
-    description: 'The founding event of MU-ACM — a celebration of community, technology, and the beginning of something extraordinary at Medi-Caps University.',
+    description: 'A beginner-friendly workshop unlocking the power of Figma — participants learned UI/UX fundamentals, wireframing, prototyping, and how to design stunning interfaces from scratch.',
     speaker: 'Mr. Udit Chawda',
-    tags: ['Community', 'Web3'],
+    tags: ['Workshop', 'Design'],
   },
-      {
+  {
     id: 'chakravyuh',
     title: 'Chakravyuh: The Escape Room',
     date: 'March 2025',
     status: 'completed',
     coverImage: '/Events/Chakravyuh.jpg',
-    description: 'The founding event of MU-ACM — a celebration of community, technology, and the beginning of something extraordinary at Medi-Caps University.',
+    description: 'A thrilling tech-themed escape room where teams raced against the clock to solve a series of programming puzzles, riddles, and technical challenges to break free.',
     speaker: null,
-    tags: ['Community', 'Web3'],
+    tags: ['Competition', 'Fun'],
   },
   {
     id: 'digital-marketing',
@@ -80,19 +80,19 @@ export const PAST_EVENTS = [
     date: 'Feb 2025',
     status: 'completed',
     coverImage: '/Events/digi.jpg',
-    description: 'The founding event of MU-ACM — a celebration of community, technology, and the beginning of something extraordinary at Medi-Caps University.',
-    speaker: 'Mr. Anurag Bajpai & Mr. Jasneet Singh Saini',
-    tags: ['Community', 'Web3'],
+    description: 'An expert-led session on modern digital marketing strategies — covering SEO, social media marketing, content creation, analytics, and how to build a brand online.',
+    speaker: 'Mr. Raj Padiyar',
+    tags: ['Workshop', 'Marketing'],
   },
-    {
+  {
     id: 'webify',
     title: 'Webify: All About Web Dev',
     date: 'Feb 2025',
     status: 'completed',
     coverImage: '/Events/Webify.jpg',
-    description: 'The founding event of MU-ACM — a celebration of community, technology, and the beginning of something extraordinary at Medi-Caps University.',
-    speaker: 'Mr. Anurag Bajpai & Mr. Jasneet Singh Saini',
-    tags: ['Community', 'Web3'],
+    description: 'A comprehensive introduction to web development — from HTML, CSS and JavaScript basics to modern frameworks, covering everything a beginner needs to start building for the web.',
+    speaker: 'Mr. Akshay Mandliya',
+    tags: ['Workshop', 'Web Dev'],
   },
   {
     id: 'hacksangram',
@@ -100,19 +100,19 @@ export const PAST_EVENTS = [
     date: 'Jan 2025',
     status: 'completed',
     coverImage: '/Events/Hack_Sangram.jpg',
-    description: 'The founding event of MU-ACM — a celebration of community, technology, and the beginning of something extraordinary at Medi-Caps University.',
-    speaker: 'Mr. Anurag Bajpai & Mr. Jasneet Singh Saini',
-    tags: ['Community', 'Web3'],
+    description: 'A high-energy hackathon where teams collaborated under time pressure to ideate, prototype, and present innovative tech solutions to real-world problems.',
+    speaker: null,
+    tags: ['Hackathon', 'Innovation'],
   },
-    {
+  {
     id: 'open_source',
     title: 'Understanding Open Source',
     date: 'Oct 2024',
     status: 'completed',
     coverImage: '/Events/Open Source.png',
-    description: 'The founding event of MU-ACM — a celebration of community, technology, and the beginning of something extraordinary at Medi-Caps University.',
-    speaker: 'Mr. Anurag Bajpai & Mr. Jasneet Singh Saini',
-    tags: ['Community', 'Web3'],
+    description: 'A session demystifying open source software — how it works, how to contribute to projects on GitHub, and why open source is the backbone of modern software development.',
+    speaker: 'Mr. Atharv Vani',
+    tags: ['Workshop', 'Open Source'],
   },
   {
     id: 'basics-of-javascript',
@@ -133,16 +133,6 @@ export const PAST_EVENTS = [
     description: 'A hands-on workshop covering the core principles of video editing — storytelling through cuts, color grading, transitions, and industry-standard tools.',
     speaker: 'Mr. Ram Krishna Swarnkar',
     tags: ['Workshop', 'Design'],
-  },
-  {
-    id: 'digital-marketing',
-    title: 'Leveraging AI in Digital Marketing',
-    date: 'Dec 2024',
-    status: 'completed',
-    coverImage: '/events/dm.webp',
-    description: 'Expert sessions exploring the intersection of AI and digital marketing — AI-driven strategies, personalised campaigns, data-driven decisions and customer engagement.',
-    speaker: 'Mr. Kaustubh Joshi',
-    tags: ['Workshop', 'AI'],
   },
   {
     id: 'conquering-canva',
@@ -195,7 +185,7 @@ const EventCard = ({ ev, i = 0 }) => (
         hover:-translate-y-1.5 hover:shadow-[0_16px_40px_rgba(0,212,255,0.07)]">
       <div className="aspect-video overflow-hidden relative bg-[#0a0a14]">
         {ev.coverImage
-          ? <img src={ev.coverImage} alt={ev.title}  />
+          ? <img src={ev.coverImage} alt={ev.title} className="w-full h-full object-cover opacity-60" />
           : <div className="w-full h-full flex items-center justify-center
               font-['JetBrains_Mono'] text-xs text-[#1a1a2e]">// NO_IMAGE</div>
         }
@@ -208,7 +198,7 @@ const EventCard = ({ ev, i = 0 }) => (
           {ev.status?.toUpperCase()}
         </div>
         {ev.tags?.length > 0 && (
-          <div className="absolute bottom-3 left-3 flex gap-1.5">
+          <div className="absolute bottom-3 left-3 flex gap-1.5 flex-wrap">
             {ev.tags.map(tag => (
               <span key={tag} className="font-['JetBrains_Mono'] text-[10px] px-1.5 py-0.5
                 border border-[#00D4FF]/15 text-[#00D4FF]/65 bg-[#020205]/70 tracking-widest">

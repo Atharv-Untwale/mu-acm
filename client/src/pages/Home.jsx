@@ -229,7 +229,7 @@ const About = () => (
           The ACM (Association for Computing Machinery) is a 75-year-old international scientific and industrial computing society with around 100,000 members spread over 174 countries.
         </p>
         <p className="text-[#7a7a90] font-['JetBrains_Mono'] text-sm leading-[2]">
-          The Medi-Caps University ACM Student Chapter is a vibrant community of like-minded individuals with a shared love for technology. Dedicated to fostering growth in the world of computing, we organise events that cater to the holistic technical needs of the job market.
+          The Medicaps University ACM Student Chapter is a vibrant community of like-minded individuals with a shared love for technology. Dedicated to fostering growth in the world of computing, we organise events that cater to the holistic technical needs of the job market.
         </p>
       </Reveal>
 
@@ -477,7 +477,7 @@ const FACULTY = [
     designation: 'Faculty Coordinator',
     department: 'Medicaps University',
     image: '/faculty-priyanka-dhasal.webp',
-    statement: 'Add Prof. Priyanka Dhasal\'s statement here.',
+    statement: 'As a Faculty Coordinator, it has been truly rewarding to witness such dedication and growth within the ACM student community. The commitment and enthusiasm shown in contributing to the club’s development reflect strong leadership and teamwork qualities. From successfully organizing events to fostering collaboration among peers, this journey highlights a proactive approach toward learning and innovation. It is inspiring to see how ACM has become a platform for nurturing ideas, building meaningful connections, and supporting both personal and professional development. Such experiences not only strengthen the club but also prepare students for future challenges with confidence and competence.',
   },
 ]
 
@@ -541,7 +541,7 @@ const FacultySection = () => (
 // FAQ
 // ═══════════════════════════════════════════════════════════════
 const FAQS = [
-  { q:'Who can join MU-ACM?', a:'Any student at Medi-Caps University who has a passion for technology and computing.' },
+  { q:'Who can join MU-ACM?', a:'Any student at Medicaps University who has a passion for technology and computing.' },
   { q:'What activities does MU-ACM organize?', a:'Workshops, hackathons, tech talks, coding competitions, and various technical events throughout the year.' },
   { q:'Do I need prior programming experience?', a:'No! MU-ACM welcomes all skill levels — beginners and advanced programmers alike.' },
   { q:'How can I become a member?', a:'Register on our website or reach out on Discord.' },
