@@ -20,7 +20,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="inline-block mt-4 bg-accent text-primary font-heading font-semibold text-sm px-5 py-2 rounded-full hover:bg-accentDark transition-colors duration-200"
             >
-              Join Discord
+              Join Our Community
             </a>
           </div>
 

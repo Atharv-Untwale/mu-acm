@@ -3,9 +3,9 @@ const contributors = [
     name: 'Atharv Untwale',
     role: 'Full Stack Developer',
     github: 'https://github.com/Atharv-Untwale',
-    linkedin: '',
-    avatar: '',
-    batch: '2024'
+    linkedin: 'https://www.linkedin.com/in/atharv-untwale/',
+    avatar: '/Atharv_Untwale (President) (1).jpg',
+    batch: '2027'
   },
 ]
 
