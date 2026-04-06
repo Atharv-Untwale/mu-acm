@@ -469,14 +469,14 @@ const FACULTY = [
     name: 'Prof. Dr. Latika Jindal',
     designation: 'Head of Techno Clubs',
     department: 'Medicaps University',
-    image: '/faculty-latika-jindal.webp',
+    image: 'Core Team/faculty-latika-jindal.webp',
     statement: 'My journey with the Techno Club and the ACM Student Chapter has been both inspiring and fulfilling. As Head of the Techno Club, I have always believed that technology is best learned by doing, sharing, and growing together. Working closely with ACM as an integral part of the club has given me the opportunity to mentor students, support innovative ideas, and create platforms where curiosity turns into real skills. I am deeply passionate about technology, research, and practical learning, and I enjoy helping students connect classroom concepts with real-world applications through workshops, projects, and collaborative initiatives. For me, this role is not just about leading, but about building a strong tech community where students feel motivated, confident, and ready to shape the future through technology.',
   },
   {
     name: 'Prof. Priyanka Dhasal',
     designation: 'Faculty Coordinator',
     department: 'Medicaps University',
-    image: '/faculty-priyanka-dhasal.webp',
+    image: 'Core Team/faculty-priyanka-dhasal.webp',
     statement: 'As a Faculty Coordinator, it has been truly rewarding to witness such dedication and growth within the ACM student community. The commitment and enthusiasm shown in contributing to the club’s development reflect strong leadership and teamwork qualities. From successfully organizing events to fostering collaboration among peers, this journey highlights a proactive approach toward learning and innovation. It is inspiring to see how ACM has become a platform for nurturing ideas, building meaningful connections, and supporting both personal and professional development. Such experiences not only strengthen the club but also prepare students for future challenges with confidence and competence.',
   },
 ]
